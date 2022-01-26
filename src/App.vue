@@ -1,32 +1,21 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <b-navbar toggleable="lg" type="dark" variant="danger">
+    <b-navbar-brand href="#">
+      <img src="./assets/logo.png" style="width: 150px;">
+    </b-navbar-brand>
+
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+    <b-collapse id="nav-collapse" is-nav class="justify-content-lg-center">
+      <b-navbar-nav class="bg-info w-50 justify-content-lg-evenly">
+        <b-nav-item href="#">首頁</b-nav-item>
+        <b-nav-item href="#">鍋物介紹</b-nav-item>
+        <b-nav-item href="#">我要點餐</b-nav-item>
+        <b-nav-item href="#">聯絡我們</b-nav-item>
+      </b-navbar-nav>
+
+    </b-collapse>
+  </b-navbar>
   </div>
 </template>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
