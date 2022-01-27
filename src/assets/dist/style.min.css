@@ -1,0 +1,1 @@
+body{font-family:'Noto Sans TC', sans-serif}.app-navbar{background:-webkit-gradient(linear, left top, left bottom, from(#D41212), to(#6C0202));background:linear-gradient(to bottom, #D41212, #6C0202)}.app-navbar ::v-deep .app-navitem{color:white;font-weight:bold}.app-none{visibility:visible}@media (min-width: 992px){.app-none{visibility:hidden}}

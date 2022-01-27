@@ -1,0 +1,14 @@
+body{
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.app-navbar{
+  background: linear-gradient(to bottom, #D41212, #6C0202);
+  ::v-deep .app-navitem{
+    color: white;
+    font-weight: bold ;
+  }
+}
+.app-none{
+  visibility: visible;
+  @media (min-width: 992px) { visibility: hidden; }
+}
