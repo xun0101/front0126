@@ -2,6 +2,9 @@ body{
   font-family: 'Noto Sans TC', sans-serif;
 }
 .app-navbar{
+  position: fixed;
+  z-index: 999;
+  width: 100vw;
   background: linear-gradient(to bottom, #D41212, #6C0202);
   ::v-deep .app-navitem{
     color: white;
@@ -11,4 +14,64 @@ body{
 .app-none{
   visibility: visible;
   @media (min-width: 992px) { visibility: hidden; }
+}
+
+.button-cart{
+  width:100%;
+  height:25%;
+  background:#8CA93E;
+  a{
+    width:100%;
+    height:100%;
+  }
+  &:hover{
+  background:#1A4605;
+  }
+}
+.black{
+  div{
+    color: white;
+    top: 100%;
+    width:95%;
+    opacity: 0;
+    text-align: center;
+    word-wrap:break-word;
+    background: rgba($color: #000000, $alpha: 0.5);
+  }
+  &:hover div{
+    opacity: 1;
+    transition: .5s;
+    top:50%;
+  }
+}
+.big{
+  transform:scale(1,1);
+  transition: all 1s ease-out;
+  &:hover{
+    transform:scale(1.1,1.1);
+  }
+}
+
+.bg4{
+  position: relative;
+  background: url(../chopping\ board.jpg);
+  .img4{
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    z-index: 99;
+    @media (min-width: 1700px) { top: -25%; }
+  }
+}
+
+.footer{
+  position: relative;
+  .footer-img{
+    position: absolute;
+    right: 0;
+    top: 55%;
+  }
+  .footer-text{
+    color: #26B9A7;
+  }
 }
