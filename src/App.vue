@@ -16,17 +16,19 @@
         <b-nav-item class="mx-lg-auto" href="#section03"><b-nav-text><a>我要點餐</a></b-nav-text></b-nav-item>
         <b-nav-item class="mx-lg-auto" href="#footer"><b-nav-text><a>聯絡我們</a></b-nav-text></b-nav-item>
       </div>
-      <b-nav-item class="ms-lg-auto" v-if="!user.isLogin" @click="signForLine"><b-nav-text><a>註冊</a></b-nav-text></b-nav-item>
-      <b-nav-item class="ms-lg-auto" v-if="user.isLogin" @click="signForLine"><b-nav-text><a>購物車</a></b-nav-text></b-nav-item>
+      <div class="d-flex flex-column flex-lg-row me">
+        <b-nav-item class="ms-lg-auto" v-if="!user.isLogin" @click="signForLine"><b-nav-text><a>註冊</a></b-nav-text></b-nav-item>
+      <b-nav-item class="ms-lg-auto" v-if="user.isLogin && !user.isAdmin" @click="signForLine"><b-nav-text><a>購物車</a></b-nav-text></b-nav-item>
       <b-nav-item class="ms-lg-auto" v-if="user.isLogin && user.isAdmin" @click="signForLine"><b-nav-text><a>管理</a></b-nav-text></b-nav-item>
       <b-nav-item class="ms-lg-auto d-none d-lg-block"><b-nav-text><a>|</a></b-nav-text></b-nav-item>
       <b-nav-item class="ms-lg-auto" v-if="!user.isLogin" v-b-modal.modal-1><b-nav-text><a>登入</a></b-nav-text></b-nav-item>
       <b-nav-item class="ms-lg-auto" v-if="user.isLogin" @click="logout"><b-nav-text><a>登出</a></b-nav-text></b-nav-item>
+      </div>
     </b-navbar-nav>
     </b-collapse>
   </b-navbar>
 
-<b-modal ref="my-modal" id="modal-1" hide-footer>
+<b-modal ref="my-modal" id="modal-1" hide-footer @hidden="hideModal">
     <b-tabs align="around">
     <b-tab title="使用者登入" active>
     <div class="text-center my-5">
@@ -42,12 +44,15 @@
         <b-form-input id="input-account" v-model="form.password" required placeholder='請輸入密碼' type="password" :state='state.password'></b-form-input>
         </b-form-group>
         <div class="text-center">
-          <b-btn class="mx-1" variant='success' type='sumbit' @click="hideModal">登入</b-btn>
+          <b-btn class="mx-1" variant='success' type='sumbit'>登入</b-btn>
         </div>
       </b-form>
     </b-tab>
   </b-tabs>
   </b-modal>
+    <div>
+    <font-awesome-icon @click="move" class="arrow-icon" :icon="['fas', 'chevron-down']" size="6x" style="color:white"/>
+  </div>
   <router-view></router-view>
   </div>
 </template>
@@ -76,7 +81,8 @@ export default {
   },
   methods: {
     hideModal () {
-      this.$refs['my-modal'].hide()
+      this.form.account = ''
+      this.form.password = ''
     },
     random (R) {
       return Math.floor(Math.random() * R)
@@ -87,22 +93,27 @@ export default {
       link += '&client_id=' + process.env.VUE_APP_CHANNEL_ID
       link += '&redirect_uri=' + process.env.VUE_APP_CALLBACK_URL // /users/signInLine
       link += '&state=' + this.randomState
-      // TODO: state 建議在 Web app 請求中，針對每個登入階段隨機生成。並確認該值與Web app 中接收授權碼時的 state 屬性值一致。
       link += '&bot_prompt=normal' // 預設要加官方帳號好友
       link += '&scope=openid%20profile' // 預設申請使用者資料及 token
       window.location.href = link
       console.log(link)
     },
     login () {
+      this.$refs['my-modal'].hide()
       this.$store.dispatch('user/login', this.form)
       console.log(123)
     },
     logout () {
       this.$store.dispatch('user/logout')
+    },
+    move () {
+      var element = document.getElementById('section02')
+      element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' })
     }
   },
   async created () {
     this.$store.dispatch('user/getInfo')
+    this.$store.dispatch('user/signInLine')
   }
 }
 </script>

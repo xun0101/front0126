@@ -15,6 +15,9 @@ body{
   visibility: visible;
   @media (min-width: 992px) { visibility: hidden; }
 }
+.me{
+  margin-right: 2rem;
+}
 
 .button-cart{
   width:100%;
@@ -27,6 +30,14 @@ body{
   &:hover{
   background:#1A4605;
   }
+}
+.button-text{
+  display: none;
+  @media (min-width: 768px) {
+    font-size: 1rem;
+    display: block;
+  }
+  @media (min-width: 992px) { font-size: 2.5rem; }
 }
 .black{
   div{
@@ -66,12 +77,35 @@ body{
 
 .footer{
   position: relative;
+  .footer-text{
+    font-size: 1.5rem;
+    @media (min-width: 992px) { font-size: 2rem; }
+  }
   .footer-img{
     position: absolute;
     right: 0;
     top: 55%;
   }
-  .footer-text{
+  .footer-img-text{
     color: #26B9A7;
+    font-size: 1.3rem;
+    @media (min-width: 992px) { font-size: 2rem; }
+  }
+}
+
+.arrow-icon{
+  display: none;
+  position: absolute;
+  @media (min-width: 1200px) {
+    display: block;
+  transition: 1s;
+  /* position: absolute; */
+  top: 90%;
+  left: 45%;
+  z-index: 99;
+  opacity: 0.5;
+  &:hover{
+    opacity: 0.8;
+  }
   }
 }

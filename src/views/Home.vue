@@ -1,16 +1,16 @@
 <template>
 <div id="home">
 <Section01></Section01>
-<div class="container" style="margin-top: 150px;">
+<div class="container" style="margin-top: 200px;">
   <Section02></Section02>
 </div>
-<div class="container" style="margin-top: 150px;">
+<div class="container" style="margin-top: 200px;">
   <Section03></Section03>
 </div>
-<div style="margin-top: 150px;">
+<div style="margin-top: 200px;">
   <Section04></Section04>
 </div>
-<div style="margin-top: 150px;">
+<div style="margin-top: 200px;">
   <Footer1></Footer1>
 </div>
 </div>

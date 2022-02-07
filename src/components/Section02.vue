@@ -11,7 +11,7 @@
     </div>
       </b-col>
       <b-col>
-        <div class="mt-5 rounded-pill text-center h1 fw-bold button-cart h-100">
+        <div class="mt-5 rounded-pill text-center fw-bold button-cart h-100 button-text">
         <a class="text-white d-flex align-items-center justify-content-center" href="#">
         <b-icon icon="cart4" class="mx-3"></b-icon>購物車
         </a>

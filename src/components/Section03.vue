@@ -19,7 +19,7 @@
       $ 80
       </b-card-text>
       <b-button href="#" variant="light">
-      <font-awesome-icon @click="signForLine" :icon="['fas', 'cart-plus']" size="lg" style="color:black"/>
+      <font-awesome-icon :icon="['fas', 'cart-plus']" size="lg" style="color:black"/>
       </b-button>
     </div>
   </b-card>
@@ -39,7 +39,7 @@
       $ 80
       </b-card-text>
       <b-button href="#" variant="light">
-      <font-awesome-icon @click="signForLine" :icon="['fas', 'cart-plus']" size="lg" style="color:black"/>
+      <font-awesome-icon :icon="['fas', 'cart-plus']" size="lg" style="color:black"/>
       </b-button>
     </div>
   </b-card>
@@ -59,7 +59,7 @@
       $ 122
       </b-card-text>
       <b-button href="#" variant="light">
-      <font-awesome-icon @click="signForLine" :icon="['fas', 'cart-plus']" size="lg" style="color:black"/>
+      <font-awesome-icon :icon="['fas', 'cart-plus']" size="lg" style="color:black"/>
       </b-button>
     </div>
   </b-card>

@@ -13,12 +13,12 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
+import { faCartPlus, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faLine } from '@fortawesome/free-brands-svg-icons'
 import mixin from './mixin.js'
 
-library.add(faLine, faCartPlus)
+library.add(faLine, faCartPlus, faChevronDown)
 Vue.mixin(mixin)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

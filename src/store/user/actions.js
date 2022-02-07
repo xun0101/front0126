@@ -7,7 +7,8 @@ export const login = async ({ commit }, form) => {
     console.log(form)
     const { data } = await api.post('/users/login', form)
     commit('login', data.result)
-    router.push('/')
+    window.history.pushState('', '', '/')
+    // router.push('/')
     swal.fire({
       icon: 'success',
       title: '成功',
@@ -56,5 +57,28 @@ export const getInfo = async ({ commit, state }) => {
     commit('getInfo', data.result)
   } catch (error) {
     commit('logout')
+  }
+}
+
+export const signInLine = async ({ commit, state }) => {
+  console.log(12345)
+  const matches = location.href.match(/jwt=([^.\s]+.[^.\s]+.[^.\s]+)/gm)
+  console.log(matches.length)
+  if (matches.length > 0) {
+    const jwt = matches[0].substring(4, 176)
+    if (jwt) {
+      await api.get('/users/signInLineData', {
+        headers: {
+          authorization: 'Bearer ' + jwt
+        }
+      }).then(res => {
+        commit('login', res.data)
+        // router.push('/')
+        window.history.pushState('', '', '/line')
+      }).catch((error) => {
+        console.log(error)
+        commit('logout')
+      })
+    }
   }
 }
