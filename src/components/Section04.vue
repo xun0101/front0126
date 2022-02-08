@@ -5,7 +5,7 @@
       <b-table sticky-header striped hover :items="items" :fields="fields" style="word-break:break-all; word-wrap:break-all;"></b-table>
     </div>
     <div class="img4 w-25 d-none d-lg-block">
-      <img class="rounded-circle img-fluid" src="../assets/logo2.png" >
+      <img class="rounded-circle img-fluid" src="../assets/image/logo2.png" >
     </div>
   </div>
 </div>

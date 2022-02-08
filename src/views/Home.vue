@@ -1,6 +1,9 @@
 <template>
 <div id="home">
 <Section01></Section01>
+<div>
+  <font-awesome-icon @click="move" class="arrow-icon" :icon="['fas', 'chevron-down']" size="6x" style="color:white"/>
+</div>
 <div class="container" style="margin-top: 200px;">
   <Section02></Section02>
 </div>
@@ -30,6 +33,12 @@ export default {
     Section03,
     Section04,
     Footer1
+  },
+  methods: {
+    move () {
+      var element = document.getElementById('section02')
+      element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' })
+    }
   }
 }
 </script>

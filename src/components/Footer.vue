@@ -6,7 +6,7 @@
   <h2 class="text-white footer-text font-weight-bold">TEL：08 755 5481</h2>
   <h2 class="text-white footer-text font-weight-bold">ADD：屏東縣屏東市大武路286號900 1號</h2>
   <div class="d-flex flex-column footer-img">
-  <img class="w-50 mx-auto" src="../assets/line.jpg" >
+  <img class="w-50 mx-auto" src="../assets/image/line.jpg" >
   <h2 class=" font-weight-bold mt-1 footer-img-text">加入LINE好友，獲得更多資訊</h2>
   </div>
 </div>

@@ -1,8 +1,10 @@
 body{
   font-family: 'Noto Sans TC', sans-serif;
+  background-color: #F5E3C0;
 }
 .app-navbar{
   position: fixed;
+  top: 0;
   z-index: 999;
   width: 100vw;
   background: linear-gradient(to bottom, #D41212, #6C0202);
@@ -65,7 +67,7 @@ body{
 
 .bg4{
   position: relative;
-  background: url(../chopping\ board.jpg);
+  background: url(../image/chopping\ board.jpg);
   .img4{
     position: absolute;
     right: 0%;
@@ -108,4 +110,26 @@ body{
     opacity: 0.8;
   }
   }
+}
+#admin{
+  margin-top: 100px;
+  .aa{
+    & a{
+      color: #8CA93E;
+    }
+    .active{
+      background-color: #8CA93E;
+      color: #fff;
+    }
+  }
+}
+
+#admin-home{
+  h1{
+    color: #8CA93E;
+  }
+}
+.btn-green{
+  background-color: #8CA93E;
+  color: #fff;
 }
