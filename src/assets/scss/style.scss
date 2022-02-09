@@ -42,35 +42,58 @@ body{
   @media (min-width: 992px) { font-size: 2.5rem; }
 }
 #section02{
-  height: 70vh;
-  // background: #6C0202;
+  height: 100vh;
   background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(../image/chopping\ board.jpg) no-repeat center/cover;
+  // background-attachment: fixed;
+  .s2-bg{
+    height: 50vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(../image/S__3522563.jpg)no-repeat center/cover;
+    background-attachment: fixed;
 }
-.black{
-  div{
+  position: relative;
+  .black{
+    background: black;
+    position: absolute;
     color: white;
-    top: 100%;
-    width:95%;
-    opacity: 0;
-    text-align: center;
-    word-wrap:break-word;
-    background: rgba($color: #000000, $alpha: 0.5);
-  }
-  &:hover div{
-    opacity: 1;
+    border: 3px double rgb(243, 173, 23);
+    box-shadow: 10px 10px 15px black;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%);
+    &:hover{
+    box-shadow: 10px 10px 30px black;
     transition: .5s;
-    top:50%;
+    }
+    p{
+      writing-mode: vertical-lr ;
+    }
   }
 }
-.big{
-  transform:scale(1,1);
-  transition: all 1s ease-out;
-  &:hover{
-    transform:scale(1.1,1.1);
-  }
-}
+// .black{
+//   div{
+//     color: white;
+//     top: 100%;
+//     width:95%;
+//     opacity: 0;
+//     text-align: center;
+//     word-wrap:break-word;
+//     background: rgba($color: #000000, $alpha: 0.5);
+//   }
+//   &:hover div{
+//     opacity: 1;
+//     transition: .5s;
+//     top:50%;
+//   }
+// }
+// .big{
+//   transform:scale(1,1);
+//   transition: all 1s ease-out;
+//   &:hover{
+//     transform:scale(1.1,1.1);
+//   }
+// }
 #section04{
-  height: 50vh;
+  height: 500px;
   background:linear-gradient(rgba(201, 228, 159, 0.3), rgba(255, 255, 255, 0.3));
 }
 .bg4{

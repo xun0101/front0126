@@ -8,8 +8,8 @@
   <b-collapse id="nav-collapse" is-nav>
     <b-navbar-nav class="w-100">
       <div class="container d-flex flex-column flex-lg-row justify-content-lg-start">
-        <b-nav-item class="mx-3" href="#section02" to='/'><b-nav-text><a>最新消息</a></b-nav-text></b-nav-item>
-        <b-nav-item class="mx-3" href="#section02" to='/'><b-nav-text><a>本店介紹</a></b-nav-text></b-nav-item>
+        <b-nav-item class="mx-3" href="#section02" to='/'><b-nav-text><a>本店新訊</a></b-nav-text></b-nav-item>
+        <b-nav-item class="mx-3" href="#section02" to='/'><b-nav-text><a>關於我們</a></b-nav-text></b-nav-item>
         <b-nav-item class="mx-3" href="#section02" to='/'><b-nav-text><a>鍋物介紹</a></b-nav-text></b-nav-item>
         <b-nav-item class="mx-3" href="#section03"><b-nav-text><a>我要點餐</a></b-nav-text></b-nav-item>
         <b-nav-item class="mx-3" href="#footer"><b-nav-text><a>聯絡我們</a></b-nav-text></b-nav-item>

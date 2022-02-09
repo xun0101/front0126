@@ -1,6 +1,6 @@
 <template>
 <div id="section04">
-  <h1 class="text-center pt-5">公告</h1>
+  <h1 class="text-center pt-5">本店新訊</h1>
   <div class="d-flex align-content-center justify-content-center bg4">
     <div class="w-75 mt-3">
       <b-table sticky-header striped hover :items="items" :fields="fields" style="word-break:break-all; word-wrap:break-all;"></b-table>
