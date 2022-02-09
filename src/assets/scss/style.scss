@@ -41,6 +41,11 @@ body{
   }
   @media (min-width: 992px) { font-size: 2.5rem; }
 }
+#section02{
+  height: 70vh;
+  // background: #6C0202;
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(../image/chopping\ board.jpg) no-repeat center/cover;
+}
 .black{
   div{
     color: white;
@@ -64,10 +69,12 @@ body{
     transform:scale(1.1,1.1);
   }
 }
-
+#section04{
+  height: 50vh;
+  background:linear-gradient(rgba(201, 228, 159, 0.3), rgba(255, 255, 255, 0.3));
+}
 .bg4{
   position: relative;
-  background: url(../image/chopping\ board.jpg);
   .img4{
     position: absolute;
     right: 0%;

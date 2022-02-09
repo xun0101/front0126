@@ -17,6 +17,10 @@ import { faCartPlus, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faLine } from '@fortawesome/free-brands-svg-icons'
 import mixin from './mixin.js'
+import ImgInputer from 'vue-img-inputer'
+import 'vue-img-inputer/dist/index.css'
+
+Vue.component('ImgInputer', ImgInputer)
 
 library.add(faLine, faCartPlus, faChevronDown)
 Vue.mixin(mixin)

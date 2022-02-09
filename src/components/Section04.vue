@@ -1,12 +1,13 @@
 <template>
 <div id="section04">
+  <h1 class="text-center pt-5">公告</h1>
   <div class="d-flex align-content-center justify-content-center bg4">
-    <div class="w-75">
+    <div class="w-75 mt-3">
       <b-table sticky-header striped hover :items="items" :fields="fields" style="word-break:break-all; word-wrap:break-all;"></b-table>
     </div>
-    <div class="img4 w-25 d-none d-lg-block">
+    <!-- <div class="img4 w-25 d-none d-lg-block">
       <img class="rounded-circle img-fluid" src="../assets/image/logo2.png" >
-    </div>
+    </div> -->
   </div>
 </div>
 </template>
@@ -24,7 +25,7 @@ export default {
         { 最新消息: '06/30起本店連休', 發佈時間: '2021/06/02' },
         { 最新消息: '05/06本店公休三天', 發佈時間: '2020/05/04' },
         { 最新消息: '04/07本店調漲', 發佈時間: '2018/02/02' },
-        { 最新消息: '新址:屏東縣屏東市大武路286號900 1號', 發佈時間: '2012/03/02' }
+        { 最新消息: '搬遷新址:屏東縣屏東市大武路286號900 1號', 發佈時間: '2012/03/02' }
       ]
     }
   }

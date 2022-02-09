@@ -4,21 +4,24 @@
       <!-- Loops through item data and creates a carousel item -->
 
       <swiper-slide>
-        <img src="https://images.deliveryhero.io/image/fd-tw/Products/25732299.jpg?width=2000" >
+        <img src="../assets/image/臭臭鍋.png" >
         <div class="mask">
-          <p class="mask-text">臭臭鍋</p>
+          <h1 class="mask-text">臭臭鍋</h1>
+          <p class="mask-p">經典原味，俘虜你的味</p>
         </div>
       </swiper-slide>
       <swiper-slide>
-        <img src="https://images.deliveryhero.io/image/fd-tw/Products/25732300.jpg?width=2000" >
+        <img src="../assets/image/鴨血豆腐煲.png" >
         <div class="mask">
           <p class="mask-text">豆腐鴨血煲</p>
+          <p class="mask-p">香嫩入味，地方媽媽強推</p>
         </div>
       </swiper-slide>
       <swiper-slide>
-        <img src="https://images.deliveryhero.io/image/fd-tw/Products/25732301.jpg?width=2000" >
+        <img src="../assets/image/肥腸臭臭鍋.png" >
         <div class="mask">
           <p class="mask-text">肥腸臭臭鍋</p>
+          <p class="mask-p">軟Q肥腸，多汁味美</p>
         </div>
       </swiper-slide>
 
@@ -61,7 +64,17 @@
   color: white;
   z-index: 99;
   opacity: 0.8;
-  font-size: 5rem;
+  font-size: 50px;
+}
+.mask-p{
+  /* display: none; */
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  color: white;
+  z-index: 99;
+  opacity: 0.8;
+  font-size: 30px;
 }
 .swiper-button-next,
 .swiper-button-prev

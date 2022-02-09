@@ -2,16 +2,18 @@
 <div id="home">
 <Section01></Section01>
 <div>
-  <font-awesome-icon @click="move" class="arrow-icon" :icon="['fas', 'chevron-down']" size="6x" style="color:white"/>
+  <font-awesome-icon @click="move" class="arrow-icon" :icon="['fas', 'chevron-down']" size="4x" style="color:white"/>
 </div>
-<div class="container" style="margin-top: 200px;">
+<div class="" style="margin-top: 150px;">
+  <Section04></Section04>
+</div>
+<div>
+<div class="" style="margin-top: 200px;">
   <Section02></Section02>
+</div>
 </div>
 <div class="container" style="margin-top: 200px;">
   <Section03></Section03>
-</div>
-<div style="margin-top: 200px;">
-  <Section04></Section04>
 </div>
 <div style="margin-top: 200px;">
   <Footer1></Footer1>
@@ -36,7 +38,7 @@ export default {
   },
   methods: {
     move () {
-      var element = document.getElementById('section02')
+      var element = document.getElementById('section04')
       element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' })
     }
   }
