@@ -1,13 +1,18 @@
 <template>
 <div id="section04">
-  <h1 class="text-center pt-5">本店新訊</h1>
-  <div class="d-flex align-content-center justify-content-center bg4">
+  <div class="d-flex justify-content-center">
+  <div style="height: 48px;width: 50px;">
+    <img src="../assets/image/chili.png" style="width: 100%; height: 100%;">
+  </div>
+  <h1 class="text-center">活動訊息</h1>
+  <div style="height: 48px;width: 50px;">
+    <img src="../assets/image/chili2.png" style="width: 100%; height: 100%;">
+  </div>
+  </div>
+  <div class="d-flex justify-content-center ">
     <div class="w-75 mt-3">
       <b-table sticky-header striped hover :items="items" :fields="fields" style="word-break:break-all; word-wrap:break-all;"></b-table>
     </div>
-    <!-- <div class="img4 w-25 d-none d-lg-block">
-      <img class="rounded-circle img-fluid" src="../assets/image/logo2.png" >
-    </div> -->
   </div>
 </div>
 </template>
@@ -16,7 +21,7 @@
 export default {
   data () {
     return {
-      fields: [{ key: '最新消息', label: '最新消息', thStyle: { background: '#8CA93E', color: '#ffffff' } }, { key: '發佈時間', label: '發佈時間', thStyle: { background: '#8CA93E', color: '#ffffff' } }],
+      fields: [{ key: '最新消息', label: '最新消息', thStyle: { background: '#000', color: '#ffffff' } }, { key: '發佈時間', label: '發佈時間', thStyle: { background: '#000', color: '#ffffff' } }],
       items: [
         { 最新消息: '02/10~02/18滿千免運', 發佈時間: '2022/02/02' },
         { 最新消息: '春節期間本店公休', 發佈時間: '2022/01/28' },

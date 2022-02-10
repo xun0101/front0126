@@ -11,8 +11,11 @@
 <div class="" style="margin-top: 200px;">
   <Section02></Section02>
 </div>
-</div>
 <div class="container" style="margin-top: 200px;">
+  <Section05></Section05>
+</div>
+</div>
+<div class="" style="margin-top: 200px;">
   <Section03></Section03>
 </div>
 <div style="margin-top: 200px;">
@@ -26,6 +29,7 @@ import Section01 from '../components/Section01.vue'
 import Section02 from '../components/Section02.vue'
 import Section03 from '../components/Section03.vue'
 import Section04 from '../components/Section04.vue'
+import Section05 from '../components/Section05.vue'
 import Footer1 from '../components/Footer'
 
 export default {
@@ -34,6 +38,7 @@ export default {
     Section02,
     Section03,
     Section04,
+    Section05,
     Footer1
   },
   methods: {

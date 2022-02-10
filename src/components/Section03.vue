@@ -1,121 +1,115 @@
 <template>
-<div id="section03">
+<div id="section03" class="container">
   <h1 class="text-center">我要點餐</h1>
   <hr class="border-success">
-  <swiper :options="swiperOption" ref="swiper" class="swiper">
-      <swiper-slide>
-        <b-card
-        title="臭臭鍋"
-        img-src="https://images.deliveryhero.io/image/fd-tw/Products/25732300.jpg?width=600"
-        img-alt="Image"
-        img-top
-        tag="article"
-        style="max-width: 20rem;"
-        class="mb-2"
-      >
-      <div class="d-flex justify-content-between w-75">
-      <b-card-text class="h4">
-      $ 80
-      </b-card-text>
-      <b-button href="#" variant="light">
-      <font-awesome-icon :icon="['fas', 'cart-plus']" size="lg" style="color:black"/>
-      </b-button>
-    </div>
-  </b-card>
-  </swiper-slide>
-      <swiper-slide>
-<b-card
-        title="豆腐鴨血煲"
-        img-src="https://images.deliveryhero.io/image/fd-tw/Products/25732300.jpg?width=600"
-        img-alt="Image"
-        img-top
-        tag="article"
-        style="max-width: 20rem;"
-        class="mb-2"
-      >
-      <div class="d-flex justify-content-between w-75">
-      <b-card-text class="h4">
-      $ 80
-      </b-card-text>
-      <b-button href="#" variant="light">
-      <font-awesome-icon :icon="['fas', 'cart-plus']" size="lg" style="color:black"/>
-      </b-button>
-    </div>
-  </b-card>
-      </swiper-slide>
-      <swiper-slide>
-        <b-card
-        title="肥腸臭臭鍋"
-        img-src="https://images.deliveryhero.io/image/fd-tw/Products/25732301.jpg?width=600"
-        img-alt="Image"
-        img-top
-        tag="article"
-        style="max-width: 20rem;"
-        class="mb-2"
-      >
-      <div class="d-flex justify-content-between w-75">
-      <b-card-text class="h4">
-      $ 122
-      </b-card-text>
-      <b-button href="#" variant="light">
-      <font-awesome-icon :icon="['fas', 'cart-plus']" size="lg" style="color:black"/>
-      </b-button>
-    </div>
-  </b-card>
-      </swiper-slide>
-
-      <template v-slot:button-prev>
-        <div
-          @click="$refs.swiper.swiperInstance.slidePrev()"
-          class="swiper-button-prev"
-        ></div>
-      </template>
-      <template v-slot:button-next>
-        <div
-          @click="$refs.swiper.swiperInstance.slideNext()"
-          class="swiper-button-next"
-        ></div>
-      </template>
-    </swiper>
-
+  <b-row class="m-auto">
+    <b-col cols="6" class="mt-3">
+      <div class="d-flex bg-light" style="height: 150px;">
+      <div class="w-50">
+        <img src="../assets/image/臭臭鍋.png" style="width:100%;height:100%; object-fit:cover;">
+      </div>
+      <div class="m-auto">
+        <h4>臭臭鍋</h4>
+        <div class="d-flex align-items-center">
+        <h5>$80</h5>
+        <b-button href="#" variant="light" class="ml-3">
+        <font-awesome-icon :icon="['fas', 'cart-plus']" size="" style="color:black"/>
+        </b-button>
+        </div>
+      </div>
+      </div>
+    </b-col>
+    <b-col cols="6" class="mt-3">
+      <div class="d-flex bg-light" style="height: 150px;">
+      <div class="w-50">
+        <img src="../assets/image/臭臭鍋.png" style="width:100%;height:100%; object-fit:cover;">
+      </div>
+      <div class="m-auto">
+        <h4>臭臭鍋</h4>
+        <div class="d-flex align-items-center">
+        <h5>$80</h5>
+        <b-button href="#" variant="light" class="ml-3">
+        <font-awesome-icon :icon="['fas', 'cart-plus']" size="" style="color:black"/>
+        </b-button>
+        </div>
+      </div>
+      </div>
+    </b-col>    <b-col cols="6" class="mt-3">
+      <div class="d-flex bg-light" style="height: 150px;">
+      <div class="w-50">
+        <img src="../assets/image/臭臭鍋.png" style="width:100%;height:100%; object-fit:cover;">
+      </div>
+      <div class="m-auto">
+        <h4>臭臭鍋</h4>
+        <div class="d-flex align-items-center">
+        <h5>$80</h5>
+        <b-button href="#" variant="light" class="ml-3">
+        <font-awesome-icon :icon="['fas', 'cart-plus']" size="" style="color:black"/>
+        </b-button>
+        </div>
+      </div>
+      </div>
+    </b-col>    <b-col cols="6" class="mt-3">
+      <div class="d-flex bg-light" style="height: 150px;">
+      <div class="w-50">
+        <img src="../assets/image/臭臭鍋.png" style="width:100%;height:100%; object-fit:cover;">
+      </div>
+      <div class="m-auto">
+        <h4>臭臭鍋</h4>
+        <div class="d-flex align-items-center">
+        <h5>$80</h5>
+        <b-button href="#" variant="light" class="ml-3">
+        <font-awesome-icon :icon="['fas', 'cart-plus']" size="" style="color:black"/>
+        </b-button>
+        </div>
+      </div>
+      </div>
+    </b-col>    <b-col cols="6" class="mt-3">
+      <div class="d-flex bg-light" style="height: 150px;">
+      <div class="w-50">
+        <img src="../assets/image/臭臭鍋.png" style="width:100%;height:100%; object-fit:cover;">
+      </div>
+      <div class="m-auto">
+        <h4>臭臭鍋</h4>
+        <div class="d-flex align-items-center">
+        <h5>$80</h5>
+        <b-button href="#" variant="light" class="ml-3">
+        <font-awesome-icon :icon="['fas', 'cart-plus']" size="" style="color:black"/>
+        </b-button>
+        </div>
+      </div>
+      </div>
+    </b-col>    <b-col cols="6" class="mt-3">
+      <div class="d-flex bg-light" style="height: 150px;">
+      <div class="w-50">
+        <img src="../assets/image/臭臭鍋.png" style="width:100%;height:100%; object-fit:cover;">
+      </div>
+      <div class="m-auto">
+        <h4>臭臭鍋</h4>
+        <div class="d-flex align-items-center">
+        <h5>$80</h5>
+        <b-button href="#" variant="light" class="ml-3">
+        <font-awesome-icon :icon="['fas', 'cart-plus']" size="" style="color:black"/>
+        </b-button>
+        </div>
+      </div>
+      </div>
+    </b-col>    <b-col cols="6" class="mt-3">
+      <div class="d-flex bg-light" style="height: 150px;">
+      <div class="w-50">
+        <img src="../assets/image/臭臭鍋.png" style="width:100%;height:100%; object-fit:cover;">
+      </div>
+      <div class="m-auto">
+        <h4>臭臭鍋</h4>
+        <div class="d-flex align-items-center">
+        <h5>$80</h5>
+        <b-button href="#" variant="light" class="ml-3">
+        <font-awesome-icon :icon="['fas', 'cart-plus']" size="" style="color:black"/>
+        </b-button>
+        </div>
+      </div>
+      </div>
+    </b-col>
+  </b-row>
 </div>
 </template>
-
-<script>
-export default {
-  data () {
-    return {
-      swiperOption: {
-        notNextTick: true,
-        loop: true,
-        initialSlide: 0,
-        // autoplay: {
-        //   delay: 5000,
-        //   stopOnLastSlide: false,
-        //   disableOnInteraction: false,
-        //   waitForTransition: true
-        // },
-        centeredSlides: true,
-        speed: 1500,
-        direction: 'horizontal',
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-          hideOnClick: true,
-          hiddenClass: 'my-button-hidden'
-        },
-        breakpoints: {
-          0: {
-            slidesPerView: 2,
-            spaceBetween: 40
-          },
-          1024: {
-            slidesPerView: 3,
-            spaceBetween: 50
-          }
-        }
-      }
-    }
-  }
-}
-</script>

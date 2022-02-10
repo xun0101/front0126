@@ -6,7 +6,9 @@
       <swiper-slide>
         <img src="../assets/image/臭臭鍋.png" >
         <div class="mask">
-          <h1 class="mask-text">臭臭鍋</h1>
+          <div class="mask-text" style="width:600px;">
+            <img src="../assets/image/title1.png" style="width:100%;height:100%; object-fit:cover;">
+          </div>
           <p class="mask-p">經典原味，俘虜你的味</p>
         </div>
       </swiper-slide>
@@ -54,14 +56,15 @@
   position: absolute;
   width:100vw;
   height: 100vh;
-  background: rgba(0,0,0,.4);
+  /* background: rgba(0,0,0,.4); */
 }
 .mask-text{
   display: none;
   position: absolute;
-  top: 15%;
-  left: 10%;
-  color: white;
+  top: 10%;
+  left: 15%;
+  transform: translate(-50%);
+  color: black;
   z-index: 99;
   opacity: 0.8;
   font-size: 50px;
@@ -69,9 +72,10 @@
 .mask-p{
   /* display: none; */
   position: absolute;
-  top: 25%;
+  top: 50%;
   left: 10%;
-  color: white;
+  transform: translate(-50%);
+  color: black;
   z-index: 99;
   opacity: 0.8;
   font-size: 30px;

@@ -2,19 +2,19 @@
   <div id="app">
     <b-navbar toggleable="lg" class="app-navbar" type="dark" variant="danger">
     <b-navbar-brand href="#" class="">
-      <img src="./assets/image/logo(1).png" to='/' style="width: 250px; position: absolute; top: 0;">
+      <img src="./assets/image/logo(1).png" to='/' style="width: 250px;">
     </b-navbar-brand>
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
   <b-collapse id="nav-collapse" is-nav>
     <b-navbar-nav class="w-100">
-      <div class="container d-flex flex-column flex-lg-row justify-content-lg-start">
+      <div class=" d-flex flex-column flex-lg-row justify-content-lg-start">
         <b-nav-item class="mx-3" href="#section02" to='/'><b-nav-text><a>本店新訊</a></b-nav-text></b-nav-item>
-        <b-nav-item class="mx-3" href="#section02" to='/'><b-nav-text><a>關於我們</a></b-nav-text></b-nav-item>
+        <b-nav-item class="mx-3" href="#section02" to='/'><b-nav-text><a>特色介紹</a></b-nav-text></b-nav-item>
         <b-nav-item class="mx-3" href="#section02" to='/'><b-nav-text><a>鍋物介紹</a></b-nav-text></b-nav-item>
         <b-nav-item class="mx-3" href="#section03"><b-nav-text><a>我要點餐</a></b-nav-text></b-nav-item>
         <b-nav-item class="mx-3" href="#footer"><b-nav-text><a>聯絡我們</a></b-nav-text></b-nav-item>
       </div>
-      <div class="d-flex flex-column flex-lg-row me lg-container">
+      <div class="ml-auto d-flex flex-column flex-lg-row me lg-container">
         <b-nav-item class="mx-lg-auto" v-if="!user.isLogin" @click="signForLine"><b-nav-text><a>註冊</a></b-nav-text></b-nav-item>
       <b-nav-item class="ms-lg-auto" v-if="user.isLogin && !user.isAdmin"><b-nav-text><a>購物車</a></b-nav-text></b-nav-item>
       <b-nav-item class="ms-lg-auto" v-if="user.isLogin && user.isAdmin" to='/admin'>
