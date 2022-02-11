@@ -15,8 +15,8 @@
   <Section05></Section05>
 </div>
 </div>
-<div class="" style="margin-top: 200px;">
-  <Section03></Section03>
+<div v-for='product in products' :key='product._id' style="margin-top: 200px;">
+  <Section03 :product='product'></Section03>
 </div>
 <div style="margin-top: 200px;">
   <Footer1></Footer1>

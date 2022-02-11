@@ -10,20 +10,25 @@
             <img src="../assets/image/title1.png" style="width:100%;height:100%; object-fit:cover;">
           </div>
           <p class="mask-p">經典原味，俘虜你的味</p>
+          <!-- <p class="mask-p2">俘虜你的味</p> -->
         </div>
       </swiper-slide>
       <swiper-slide>
         <img src="../assets/image/鴨血豆腐煲.png" >
         <div class="mask">
-          <p class="mask-text">豆腐鴨血煲</p>
-          <p class="mask-p">香嫩入味，地方媽媽強推</p>
+          <div class="mask-text" style="width:600px;">
+            <img src="../assets/image/title3.png" style="width:100%;height:100%; object-fit:cover;">
+          </div>
+          <p class="mask-p3">香嫩入味，地方媽媽強推</p>
         </div>
       </swiper-slide>
       <swiper-slide>
         <img src="../assets/image/肥腸臭臭鍋.png" >
         <div class="mask">
-          <p class="mask-text">肥腸臭臭鍋</p>
-          <p class="mask-p">軟Q肥腸，多汁味美</p>
+          <div class="mask-text" style="width:600px;">
+            <img src="../assets/image/title2.png" style="width:100%;height:100%; object-fit:cover;">
+          </div>
+          <p class="mask-p2">軟Q肥腸，多汁味美</p>
         </div>
       </swiper-slide>
 
@@ -66,20 +71,37 @@
   transform: translate(-50%);
   color: black;
   z-index: 99;
-  opacity: 0.8;
   font-size: 50px;
 }
 .mask-p{
   /* display: none; */
   position: absolute;
-  top: 50%;
-  left: 10%;
-  transform: translate(-50%);
-  color: black;
+  top: 40%;
+  left: 8%;
+  color: rgb(179, 162, 107);
   z-index: 99;
-  opacity: 0.8;
-  font-size: 30px;
+  font-size: 25px;
 }
+
+.mask-p2{
+  /* display: none; */
+  position: absolute;
+  top: 35%;
+  left: 4.5%;
+  color: rgb(179, 162, 107);
+  z-index: 99;
+  font-size: 25px;
+}
+.mask-p3{
+  /* display: none; */
+  position: absolute;
+  top: 40%;
+  left: 6%;
+  color: rgb(179, 162, 107);
+  z-index: 99;
+  font-size: 20px;
+}
+
 .swiper-button-next,
 .swiper-button-prev
 {

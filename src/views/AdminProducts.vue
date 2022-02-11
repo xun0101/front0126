@@ -6,7 +6,7 @@
       <img v-if='data.item.image' :src='data.item.image' style="height: 80px;">
     </template>
     <template #cell(sell)='data'>
-      {{ data.item.sell ? 'v' : '' }}
+      {{ data.item.sell ? '✔' : '' }}
     </template>
     <template #cell(action)='data'>
       <button variant='success' @click='editProduct(data.index)' class="btn-green border-0 my-5">編輯</button>
@@ -82,7 +82,7 @@
       bottom-text="點選或拖拽圖片以修改"
       hover-text="點選或拖拽圖片以修改"
       placeholder="點選或拖拽選擇圖片"
-      :max-size="1024"
+      :max-size="3072"
       exceed-size-text="檔案大小不能超過"
     ></img-inputer>
   </b-modal>

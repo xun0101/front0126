@@ -1,12 +1,12 @@
 <template>
 <div id="section04">
   <div class="d-flex justify-content-center">
-  <div style="height: 48px;width: 50px;">
-    <img src="../assets/image/chili.png" style="width: 100%; height: 100%;">
+  <div class="s4">
+    <img src="../assets/image/chili.png">
   </div>
   <h1 class="text-center">活動訊息</h1>
-  <div style="height: 48px;width: 50px;">
-    <img src="../assets/image/chili2.png" style="width: 100%; height: 100%;">
+  <div class="s4">
+    <img src="../assets/image/chili2.png">
   </div>
   </div>
   <div class="d-flex justify-content-center ">
