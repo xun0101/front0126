@@ -3,10 +3,10 @@
   <h1 class="text-center">鍋物介紹</h1>
   <hr class="border-success">
   <swiper :options="swiperOption" ref="swiper" class="swiper">
-      <swiper-slide>
-        <b-card
-        title="臭臭鍋"
-        img-src="https://images.deliveryhero.io/image/fd-tw/Products/25732300.jpg?width=600"
+    <swiper-slide v-for='product in products' :key='product._id'>
+      <b-card
+        :title="product.name"
+        :img-src="product.image"
         img-alt="Image"
         img-top
         tag="article"
@@ -15,48 +15,12 @@
         class="mb-2 mx-auto"
       >
       <div>
-      <b-card-text class="h5">
-      靈魂湯頭，經典的口味，最適合在寒冷的冬天大快朵頤一番
-      </b-card-text>
-    </div>
-  </b-card>
+        <b-card-text class="h5">
+          {{product.description}}
+        </b-card-text>
+      </div>
+    </b-card>
   </swiper-slide>
-      <swiper-slide>
-<b-card
-        title="豆腐鴨血煲"
-        img-src="https://images.deliveryhero.io/image/fd-tw/Products/25732300.jpg?width=600"
-        img-alt="Image"
-        img-top
-        tag="article"
-        style="max-width: 20rem;"
-        class="mb-2 mx-auto"
-        align="center"
-      >
-      <div >
-      <b-card-text class="h5">
-      傳統鴨血、銷魂豆腐，濃郁好吃
-      </b-card-text>
-    </div>
-  </b-card>
-      </swiper-slide>
-      <swiper-slide>
-        <b-card
-        title="肥腸臭臭鍋"
-        img-src="https://images.deliveryhero.io/image/fd-tw/Products/25732301.jpg?width=600"
-        img-alt="Image"
-        img-top
-        tag="article"
-        style="max-width: 20rem;"
-        class="mb-2 mx-auto"
-        align="center"
-      >
-      <div>
-      <b-card-text class="h5">
-      精心熬煮的黃金湯頭，口感層次豐富
-      </b-card-text>
-    </div>
-  </b-card>
-      </swiper-slide>
 
       <template v-slot:button-prev>
         <div
@@ -84,12 +48,6 @@ export default {
         loop: true,
         initialSlide: 0,
         grabCursor: true,
-        // autoplay: {
-        //   delay: 5000,
-        //   stopOnLastSlide: false,
-        //   disableOnInteraction: false,
-        //   waitForTransition: true
-        // },
         centeredSlides: true,
         speed: 1500,
         direction: 'horizontal',
@@ -109,7 +67,20 @@ export default {
             spaceBetween: 50
           }
         }
-      }
+      },
+      products: []
+    }
+  },
+  async created () {
+    try {
+      const { data } = await this.api.get('/products')
+      this.products = data.result
+    } catch (error) {
+      this.$swal({
+        icon: 'error',
+        title: '錯誤',
+        text: '商品取得失敗'
+      })
     }
   }
 }

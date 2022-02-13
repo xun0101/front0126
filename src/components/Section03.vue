@@ -1,12 +1,12 @@
 <template>
-<div id="section03" class="container">
-  <h1 class="text-center">我要點餐</h1>
-  <hr class="border-success">
-  <b-row class="m-auto">
-    <b-col cols="6" class="mt-3"  v-for='product in products' :key='product._id'>
+<div id="section03">
+  <!-- <h1 class="text-center">我要點餐</h1> -->
+  <!-- <hr class="border-success"> -->
+  <!-- <b-row class="m-auto"> -->
+    <!-- <b-col cols="6" class="mt-3"  v-for='product in products' :key='product._id'> -->
       <div class="d-flex bg-light s3">
       <div class="w-50">
-        <img :img-src='product.image' class="s3-img">
+        <img :src="product.image" class="s3-img">
       </div>
       <div class="m-auto">
         <h4>{{ product.name }}</h4>
@@ -18,8 +18,8 @@
         </div>
       </div>
       </div>
-    </b-col>
-  </b-row>
+    <!-- </b-col> -->
+  <!-- </b-row> -->
 </div>
 </template>
 

@@ -15,8 +15,14 @@
   <Section05></Section05>
 </div>
 </div>
-<div v-for='product in products' :key='product._id' style="margin-top: 200px;">
-  <Section03 :product='product'></Section03>
+<div class="container" style="margin-top: 200px;">
+<h1 class="text-center">我要點餐</h1>
+<hr class="border-success">
+  <b-row class="m-auto">
+    <b-col v-for='product in products' :key='product._id'  cols="6" class="mt-3" >
+      <Section03 :product='product'></Section03>
+    </b-col>
+  </b-row>
 </div>
 <div style="margin-top: 200px;">
   <Footer1></Footer1>
@@ -40,6 +46,23 @@ export default {
     Section04,
     Section05,
     Footer1
+  },
+  data () {
+    return {
+      products: []
+    }
+  },
+  async created () {
+    try {
+      const { data } = await this.api.get('/products')
+      this.products = data.result
+    } catch (error) {
+      this.$swal({
+        icon: 'error',
+        title: '錯誤',
+        text: '商品取得失敗'
+      })
+    }
   },
   methods: {
     move () {
