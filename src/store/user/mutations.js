@@ -21,3 +21,7 @@ export const getInfo = (state, data) => {
 export const extend = (state, data) => {
   state.token = data
 }
+
+export const editcart = (state, data) => {
+  state.cart = data
+}

@@ -37,7 +37,7 @@ api.interceptors.response.use((res) => {
         }).catch(error => {
           // 如果延長登入請求失敗，登出
           store.commit('user/logout')
-          router.push('/login')
+          router.push('/')
           // 將延長請求的錯誤回傳
           return Promise.reject(error)
         })

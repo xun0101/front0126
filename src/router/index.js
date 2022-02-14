@@ -15,19 +15,19 @@ const routes = [
     }
   },
   {
-    path: '/line',
-    name: 'Home',
-    component: Home,
+    path: '/cart',
+    name: 'Cart',
+    component: () => import(/* webpackChunkName: "cart" */ '../views/Cart.vue'),
     meta: {
-      title: '吃香喝辣'
+      title: '我要點餐'
     }
   },
   {
-    path: '/login',
-    name: 'Login',
-    component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue'),
+    path: '/ordercart',
+    name: 'Ordercart',
+    component: () => import(/* webpackChunkName: "ordercart" */ '../views/Ordercart.vue'),
     meta: {
-      title: '註冊'
+      title: '購物車'
     }
   },
   {
