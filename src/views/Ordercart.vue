@@ -12,9 +12,13 @@
     </template>
     <template #cell(action)='data'>
       <b-form-spinbutton v-model='data.item.quantity' min="1" inline @input='editcart(data.index, data.item.quantity)'></b-form-spinbutton>
-      <font-awesome-icon class="ml-3" :icon="['fas', 'trash']" style="color:#1A4605"/>
+      <font-awesome-icon class="ml-3" @click="editcart(data.index, 0)" :icon="['fas', 'trash']" style="color:#1A4605"/>
     </template>
   </b-table>
+  <h2 class="text-right">總金額： {{ total }}</h2>
+  <button @click='checkout' class="border-none" >
+    <font-awesome-icon :icon="['fas', 'cart-plus']" style="color:#1A4605"/>
+    </button>
 </div>
 </template>
 
@@ -47,13 +51,36 @@ export default {
           this.$store.commit('user/updateCart', this.user.cart - 1)
         }
       } catch (error) {
-        console.log(error)
         this.$swal({
           icon: 'error',
           title: '失敗',
           text: '修改購物車失敗'
         })
       }
+    },
+    async checkout () {
+      try {
+        await this.api.post('/orders', {}, {
+          headers: {
+            authorization: 'Bearer ' + this.user.token
+          }
+        })
+        this.$router.push('/orders')
+        this.$store.commit('user/updateCart', 0)
+      } catch (error) {
+        this.$swal({
+          icon: 'error',
+          title: '失敗',
+          text: '結帳失敗'
+        })
+      }
+    }
+  },
+  computed: {
+    total () {
+      return this.products.reduce((accumulator, currentValue) => {
+        return accumulator + currentValue.quantity * currentValue.product.price
+      }, 0)
     }
   },
   async created () {
