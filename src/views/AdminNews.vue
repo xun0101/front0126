@@ -46,7 +46,7 @@ export default {
     return {
       fields: [
         { key: 'news', label: '最新消息' },
-        { key: 'date', label: '發布時間' }
+        { key: 'date', label: '發佈時間' }
       ],
       news: [],
       form: {
@@ -79,12 +79,15 @@ export default {
       const fd = new FormData()
       for (const key in this.form) {
         if (key !== '_id') {
+          // console.log(this.form[key])
           fd.append(key, this.form[key])
+          // console.log(fd.get(key))
         }
-        console.log(fd)
+        console.log(fd.get(key))
       }
 
       try {
+        console.log(fd.get('new'))
         const { data } = await this.api.post('/news', fd, {
           headers: {
             authorization: 'Bearer ' + this.user.token
