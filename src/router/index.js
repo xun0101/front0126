@@ -19,7 +19,7 @@ const routes = [
     name: 'Cart',
     component: () => import(/* webpackChunkName: "cart" */ '../views/Cart.vue'),
     meta: {
-      title: '我要點餐'
+      title: '我要點餐 | 吃香喝辣'
     }
   },
   {
@@ -27,7 +27,15 @@ const routes = [
     name: 'Ordercart',
     component: () => import(/* webpackChunkName: "ordercart" */ '../views/Ordercart.vue'),
     meta: {
-      title: '購物車'
+      title: '購物車 | 吃香喝辣'
+    }
+  },
+  {
+    path: '/orders',
+    name: 'Orders',
+    component: () => import(/* webpackChunkName: "orders" */ '../views/Orders.vue'),
+    meta: {
+      title: '訂單 | 吃香喝辣'
     }
   },
   {
@@ -53,6 +61,16 @@ const routes = [
           login: true,
           admin: true,
           title: '訂單管理 | 吃香喝辣'
+        }
+      },
+      {
+        path: 'news',
+        name: 'AdminNews',
+        component: () => import(/* webpackChunkName: "admin" */ '../views/AdminNews.vue'),
+        meta: {
+          login: true,
+          admin: true,
+          title: '公告管理 | 吃香喝辣'
         }
       }
     ]

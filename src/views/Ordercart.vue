@@ -1,6 +1,6 @@
 <template>
 <div class="container" style="margin-top: 100px;">
-  <b-table striped hover :items='products' :fields='fields'>
+  <b-table striped hover :items='products' :fields='fields'  :tbody-tr-class="rowClass">
     <template #cell(image)='data'>
       <img v-if='data.item.product.image' :src='data.item.product.image' style="height: 80px;">
     </template>
@@ -17,6 +17,7 @@
   </b-table>
   <h2 class="text-right">總金額： {{ total }}</h2>
   <button @click='checkout' class="border-none" >
+    結帳
     <font-awesome-icon :icon="['fas', 'cart-plus']" style="color:#1A4605"/>
     </button>
 </div>
@@ -48,7 +49,7 @@ export default {
         )
         if (quantity === 0) {
           this.products.splice(index, 1)
-          this.$store.commit('user/updateCart', this.user.cart - 1)
+          this.$store.commit('user/editcart', this.user.cart - 1)
         }
       } catch (error) {
         this.$swal({
@@ -66,7 +67,7 @@ export default {
           }
         })
         this.$router.push('/orders')
-        this.$store.commit('user/updateCart', 0)
+        this.$store.commit('user/editcart', 0)
       } catch (error) {
         this.$swal({
           icon: 'error',
@@ -74,6 +75,10 @@ export default {
           text: '結帳失敗'
         })
       }
+    },
+    rowClass (item, type) {
+      if (!item || type !== 'row') return
+      return !item.product.sell ? 'text-danger' : ''
     }
   },
   computed: {

@@ -16,11 +16,17 @@
       </div>
       <div class="ml-auto d-flex flex-column flex-lg-row me lg-container">
         <b-nav-item class="mx-lg-auto" v-if="!user.isLogin" @click="signForLine"><b-nav-text><a>註冊</a></b-nav-text></b-nav-item>
-      <b-nav-item class="ms-lg-auto" v-if="user.isLogin && !user.isAdmin" to='/ordercart'><b-nav-text><a>購物車</a></b-nav-text></b-nav-item>
+        <b-nav-item class="ms-lg-auto" v-if="user.isLogin && !user.isAdmin">
+        <b-nav-item-dropdown text="管理" right>
+          <b-dropdown-item class="ms-lg-auto" to='/ordercart'>購物車</b-dropdown-item>
+          <b-dropdown-item class="ms-lg-auto" to='/orders'>訂單明細</b-dropdown-item>
+        </b-nav-item-dropdown>
+      </b-nav-item>
       <b-nav-item class="ms-lg-auto" v-if="user.isLogin && user.isAdmin" to='/admin'>
         <b-nav-item-dropdown text="管理" right>
           <b-dropdown-item to='/admin/orders'>訂單管理</b-dropdown-item>
           <b-dropdown-item to='/admin/products'>商品管理</b-dropdown-item>
+          <b-dropdown-item to='/admin/news'>公告管理</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-nav-item>
       <b-nav-item class="ms-lg-auto d-none d-lg-block"><b-nav-text><a>|</a></b-nav-text></b-nav-item>

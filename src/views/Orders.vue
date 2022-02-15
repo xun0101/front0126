@@ -1,10 +1,7 @@
 <template>
-<div class="container" style="margin-top: 80px;">
-  <b-table :items="orders" :fields='fields'>
-    <template #cell(user)='data'>
-      {{ data.item.user.account }}
-    </template>
-    <template #cell(data)='data'>
+<div class="container" style="margin-top: 100px;">
+  <b-table striped hover :items="orders" :fields='fields'>
+    <template #cell(date)='data'>
       {{ new Date(data.item.date).toLocaleString('zh-tw') }}
     </template>
     <template #cell(products)='data'>
@@ -13,15 +10,6 @@
           {{ product.product.name }} x {{ product.quantity }}
         </li>
       </ul>
-    </template>
-    <template #cell(check)>
-      <b-form-checkbox
-        v-model="status"
-        value="已完成"
-        unchecked-value="待完成"
-      >
-    </b-form-checkbox>
-    <div>狀態: <strong>{{ status }}</strong></div>
     </template>
   </b-table>
 </div>
@@ -34,24 +22,20 @@ export default {
       orders: [],
       fields: [
         { key: '_id', label: '單號' },
-        { key: 'user', label: '使用者' },
         { key: 'date', label: '日期' },
-        { key: 'products', label: '商品' },
-        { key: 'check', label: '編輯' }
-      ],
-      status: '未完成'
+        { key: 'products', label: '商品' }
+      ]
     }
   },
   async created () {
     try {
-      const { data } = await this.api.get('/orders/all', {
+      const { data } = await this.api.get('/orders/me', {
         headers: {
           authorization: 'Bearer ' + this.user.token
         }
       })
       this.orders = data.result
     } catch (error) {
-      console.log(error)
       this.$swal({
         icon: 'error',
         title: '失敗',
