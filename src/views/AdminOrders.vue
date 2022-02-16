@@ -15,9 +15,19 @@
       </ul>
     </template>
     <template #cell(check)='data'>
-      {{ data.index }}
-      <button v-if="num == 1" @click="b1(data.index)">1</button>
-      <button v-else @click="b2(data.index)">2</button>
+      {{ data.field.key }}
+      <!-- <button v-if="data.field.key == true" @click="b1(data.index)">1</button>
+      <button v-else @click="b2(data.index)">2</button> -->
+    <b-form-checkbox
+      id="checkbox-1"
+      v-model="status"
+      name="checkbox-1"
+      value="已完成"
+      unchecked-value="未完成"
+    >
+    </b-form-checkbox>
+
+    <div>狀態: <strong>{{ status }}</strong></div>
     </template>
   </b-table>
 </div>
@@ -35,17 +45,17 @@ export default {
         { key: 'products', label: '商品' },
         { key: 'check', label: '完成' }
       ],
-      num: 1
+      status: '未完成'
     }
   },
   methods: {
     b1 (index) {
-      console.log(index)
-      this.num = 2
+      console.log(this.data.field.key)
+      this.data.field.key = false
     },
     b2 (index) {
-      console.log(index)
-      this.num = 1
+      console.log(this.data.field.key)
+      this.data.field.key = true
     }
   },
   async created () {

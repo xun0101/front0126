@@ -39,6 +39,14 @@ const routes = [
     }
   },
   {
+    path: '/test',
+    name: 'Test',
+    component: () => import(/* webpackChunkName: "test" */ '../views/Test.vue'),
+    meta: {
+      title: '測試 | 吃香喝辣'
+    }
+  },
+  {
     path: '/admin',
     name: 'Admin',
     component: () => import(/* webpackChunkName: "admin" */ '../views/Admin.vue'),

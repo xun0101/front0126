@@ -32,6 +32,7 @@
       <b-nav-item class="ms-lg-auto d-none d-lg-block"><b-nav-text><a>|</a></b-nav-text></b-nav-item>
       <b-nav-item class="ms-lg-auto" v-if="!user.isLogin" v-b-modal.modal-1><b-nav-text><a>登入</a></b-nav-text></b-nav-item>
       <b-nav-item class="ms-lg-auto" v-if="user.isLogin" @click="logout"><b-nav-text><a>登出</a></b-nav-text></b-nav-item>
+      <b-nav-item class="ms-lg-auto" to='/test'><b-nav-text><a>測試</a></b-nav-text></b-nav-item>
       </div>
     </b-navbar-nav>
     </b-collapse>
