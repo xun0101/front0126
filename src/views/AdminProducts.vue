@@ -188,6 +188,7 @@ export default {
       }
     },
     editProduct (index) {
+      console.log(index)
       this.form = { ...this.products[index], image: null, index }
       this.$bvModal.show('modal-product')
     }

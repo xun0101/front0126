@@ -4,7 +4,7 @@
     <template #cell(user)='data'>
       {{ data.item.user.account }}
     </template>
-    <template #cell(data)='data'>
+    <template #cell(date)='data'>
       {{ new Date(data.item.date).toLocaleString('zh-tw') }}
     </template>
     <template #cell(products)='data'>
@@ -14,14 +14,10 @@
         </li>
       </ul>
     </template>
-    <template #cell(check)>
-      <b-form-checkbox
-        v-model="status"
-        value="已完成"
-        unchecked-value="待完成"
-      >
-    </b-form-checkbox>
-    <div>狀態: <strong>{{ status }}</strong></div>
+    <template #cell(check)='data'>
+      {{ data.index }}
+      <button v-if="num == 1" @click="b1(data.index)">1</button>
+      <button v-else @click="b2(data.index)">2</button>
     </template>
   </b-table>
 </div>
@@ -37,9 +33,19 @@ export default {
         { key: 'user', label: '使用者' },
         { key: 'date', label: '日期' },
         { key: 'products', label: '商品' },
-        { key: 'check', label: '編輯' }
+        { key: 'check', label: '完成' }
       ],
-      status: '未完成'
+      num: 1
+    }
+  },
+  methods: {
+    b1 (index) {
+      console.log(index)
+      this.num = 2
+    },
+    b2 (index) {
+      console.log(index)
+      this.num = 1
     }
   },
   async created () {

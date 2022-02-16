@@ -1,12 +1,15 @@
 <template>
 <b-container class="mt-5">
   <button class="btn-green border-0 my-5" v-b-modal.modal-new>新增</button>
-  <b-table :items="news" :fields='fields' ref='table'>
+  <b-table :items="news" :fields='fields' :sort-by.sync="sortBy" :sort-desc.sync="sortDesc" ref='table'>
     <template #cell(news)='data'>
-      {{ data.item.news }}
+      {{ data.item.new }}
     </template>
-    <template #cell(data)='data'>
+    <template #cell(date)='data'>
       {{ new Date(data.item.date).toLocaleString('zh-tw') }}
+    </template>
+    <template #cell(del)='data'>
+      <button variant='success' @click='del(data.item._id)' class="btn-green border-0">刪除</button>
     </template>
   </b-table>
   <b-modal id="modal-new"
@@ -44,14 +47,16 @@
 export default {
   data () {
     return {
+      sortBy: 'date',
+      sortDesc: true,
       fields: [
         { key: 'news', label: '最新消息' },
-        { key: 'date', label: '發佈時間' }
+        { key: 'date', label: '發佈時間' },
+        { key: 'del', label: '刪除' }
       ],
       news: [],
       form: {
-        new: '',
-        _id: ''
+        new: ''
       },
       modalSubmitting: false
     }
@@ -76,19 +81,8 @@ export default {
       }
       this.modalSubmitting = true
 
-      const fd = new FormData()
-      for (const key in this.form) {
-        if (key !== '_id') {
-          // console.log(this.form[key])
-          fd.append(key, this.form[key])
-          // console.log(fd.get(key))
-        }
-        console.log(fd.get(key))
-      }
-
       try {
-        console.log(fd.get('new'))
-        const { data } = await this.api.post('/news', fd, {
+        const { data } = await this.api.post('/news', this.form, {
           headers: {
             authorization: 'Bearer ' + this.user.token
           }
@@ -113,8 +107,29 @@ export default {
         return
       }
       this.form = {
-        new: '',
-        _id: ''
+        new: ''
+      }
+    },
+    async del (id) {
+      try {
+        await this.api.delete('/news/dels/' + id, {
+          headers: {
+            authorization: 'Bearer ' + this.user.token
+          }
+        })
+        this.$swal.fire({
+          icon: 'success',
+          title: '成功',
+          text: '刪除成功'
+        })
+        this.$refs.table.refresh()
+      } catch (error) {
+        console.log(error)
+        this.$swal({
+          icon: 'error',
+          title: '錯誤',
+          text: error.response.data.message
+        })
       }
     }
   },

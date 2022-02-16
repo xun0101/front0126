@@ -5,6 +5,7 @@
       <Section03 :product='product'></Section03>
     </b-col>
   </b-row>
+  <button>加入購物車</button>
 </div>
 </template>
 
