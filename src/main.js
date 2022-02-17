@@ -13,16 +13,18 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCartPlus, faChevronDown, faTrash, faCheck, faClipboard } from '@fortawesome/free-solid-svg-icons'
+import { faCartPlus, faChevronDown, faTrash, faCheck } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faLine } from '@fortawesome/free-brands-svg-icons'
 import mixin from './mixin.js'
 import ImgInputer from 'vue-img-inputer'
 import 'vue-img-inputer/dist/index.css'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 Vue.component('ImgInputer', ImgInputer)
 
-library.add(faLine, faCartPlus, faChevronDown, faTrash, faCheck, faClipboard)
+library.add(faLine, faCartPlus, faChevronDown, faTrash, faCheck)
 Vue.mixin(mixin)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
@@ -35,5 +37,8 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
+  created () {
+    AOS.init({ })
+  },
   render: h => h(App)
 }).$mount('#app')

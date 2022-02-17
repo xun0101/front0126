@@ -16,9 +16,8 @@
     </template>
   </b-table>
   <h2 class="text-right">總金額： {{ total }}</h2>
-  <button @click='checkout' class="border-none" >
-    結帳
-    <font-awesome-icon :icon="['fas', 'cart-plus']" style="color:#1A4605"/>
+    <button variant='success' @click='checkout' class="btn-green border-0 rounded-pill" style="height: 50px;width: 100px;">
+      結帳
     </button>
 </div>
 </template>

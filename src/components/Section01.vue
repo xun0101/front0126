@@ -2,7 +2,9 @@
 <div>
     <swiper id="section01" :options="swiperOption" ref="swiper" class="swiper">
       <!-- Loops through item data and creates a carousel item -->
-
+      <swiper-slide>
+        <img src="../assets/image/home-1.png">
+      </swiper-slide>
       <swiper-slide>
         <img src="../assets/image/臭臭鍋.png" >
         <div class="mask">

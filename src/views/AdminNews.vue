@@ -1,6 +1,9 @@
 <template>
 <b-container class="mt-5">
-  <button class="btn-green border-0 my-5" v-b-modal.modal-new>新增</button>
+  <div class="text-center">
+    <button class="btn-green border-0 my-3" v-b-modal.modal-new>新增</button>
+  </div>
+  <div class="card bg-light p-5 shadow">
   <b-table :items="news" :fields='fields' :sort-by.sync="sortBy" :sort-desc.sync="sortDesc" ref='table'>
     <template #cell(news)='data'>
       {{ data.item.new }}
@@ -9,7 +12,9 @@
       {{ new Date(data.item.date).toLocaleString('zh-tw') }}
     </template>
     <template #cell(del)='data'>
-      <button variant='success' @click='del(data.item._id)' class="btn-green border-0">刪除</button>
+      <button variant='success' @click='del(data.item._id)' class="border-0">
+        <font-awesome-icon :icon="['fas', 'trash']" style="color:#1A4605"/>
+      </button>
     </template>
   </b-table>
   <b-modal id="modal-new"
@@ -39,7 +44,7 @@
       placeholder='請輸入內容'
       :state = 'state.new'
     ></b-form-input>
-  </b-modal>
+  </b-modal></div>
 </b-container>
 </template>
 
@@ -52,7 +57,7 @@ export default {
       fields: [
         { key: 'news', label: '最新消息' },
         { key: 'date', label: '發佈時間' },
-        { key: 'del', label: '刪除' }
+        { key: 'del', label: '操作' }
       ],
       news: [],
       form: {

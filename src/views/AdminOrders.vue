@@ -1,6 +1,16 @@
 <template>
-<div class="container" style="margin-top: 80px;">
-  <b-table :items="orders" :fields='fields'>
+  <div class="container" style="margin-top:100px;">
+  <div class="card bg-light p-5 shadow">
+  <div>
+    <b-table
+      :items="orders"
+      :fields="fields"
+      :select-mode="selectMode"
+      responsive="sm"
+      ref="selectableTable"
+      selectable
+      @row-selected="onRowSelected"
+    >
     <template #cell(user)='data'>
       {{ data.item.user.account }}
     </template>
@@ -14,48 +24,61 @@
         </li>
       </ul>
     </template>
-    <template #cell(check)='data'>
-      {{ data.field.key }}
-      <!-- <button v-if="data.field.key == true" @click="b1(data.index)">1</button>
-      <button v-else @click="b2(data.index)">2</button> -->
-    <b-form-checkbox
-      id="checkbox-1"
-      v-model="status"
-      name="checkbox-1"
-      value="已完成"
-      unchecked-value="未完成"
-    >
-    </b-form-checkbox>
+      <template #cell(selected)="{ rowSelected }">
+        <template v-if="rowSelected">
+          <span aria-hidden="true">&check;</span>
+          <span class="sr-only">Selected</span>
+        </template>
+        <template v-else>
+          <span aria-hidden="true">&nbsp;</span>
+          <span class="sr-only">Not selected</span>
+        </template>
+      </template>
+    </b-table>
+    <p>
+      <b-button class="btn-green border-0" size="sm" @click="selectAllRows">完成所有</b-button>
+      <b-button class="btn-green border-0 mx-3" size="sm" @click="clearSelected">均未完成</b-button>
+    </p>
+    <p>
+      完成數:<br>
+      {{ selected.length }}
+    </p>
+  </div>
+  <b-table :items="selected" :fields="field">
 
-    <div>狀態: <strong>{{ status }}</strong></div>
-    </template>
   </b-table>
-</div>
+  </div></div>
 </template>
 
 <script>
 export default {
   data () {
     return {
-      orders: [],
       fields: [
         { key: '_id', label: '單號' },
         { key: 'user', label: '使用者' },
         { key: 'date', label: '日期' },
         { key: 'products', label: '商品' },
-        { key: 'check', label: '完成' }
+        { key: 'selected', label: '完成' }
       ],
-      status: '未完成'
+      orders: [],
+      selectMode: 'multi',
+      selected: [],
+      field: [
+        { key: '_id', label: '單號' }
+      ]
     }
   },
   methods: {
-    b1 (index) {
-      console.log(this.data.field.key)
-      this.data.field.key = false
+    async onRowSelected (id) {
+      console.log(id)
+      this.selected = id
     },
-    b2 (index) {
-      console.log(this.data.field.key)
-      this.data.field.key = true
+    selectAllRows () {
+      this.$refs.selectableTable.selectAllRows()
+    },
+    clearSelected () {
+      this.$refs.selectableTable.clearSelected()
     }
   },
   async created () {

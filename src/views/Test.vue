@@ -1,13 +1,12 @@
 <template>
-  <div class="container" style="margin-top:200px;">
+  <div class="container" style="margin-top:100px;">
+  <div class="card bg-light p-5 shadow">
+  <div>
     <b-table
       :items="orders"
       :fields="fields"
-      :select-mode="selectMode"
-      responsive="sm"
       ref="selectableTable"
       selectable
-      @row-selected="onRowSelected"
     >
     <template #cell(user)='data'>
       {{ data.item.user.account }}
@@ -33,15 +32,11 @@
         </template>
       </template>
     </b-table>
-    <p>
-      <b-button size="sm" @click="selectAllRows">完成所有</b-button>
-      <b-button size="sm" @click="clearSelected">均未完成</b-button>
-    </p>
-    <p>
-      Selected Rows:<br>
-      {{ selected }}
-    </p>
   </div>
+  <b-table :items="selected" :fields="field">
+
+  </b-table>
+  </div></div>
 </template>
 
 <script>
@@ -55,20 +50,7 @@ export default {
         { key: 'products', label: '商品' },
         { key: 'selected', label: '完成' }
       ],
-      orders: [],
-      selectMode: 'multi',
-      selected: []
-    }
-  },
-  methods: {
-    onRowSelected (items) {
-      this.selected = items
-    },
-    selectAllRows () {
-      this.$refs.selectableTable.selectAllRows()
-    },
-    clearSelected () {
-      this.$refs.selectableTable.clearSelected()
+      orders: []
     }
   },
   async created () {

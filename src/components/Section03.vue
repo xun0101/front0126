@@ -1,5 +1,5 @@
 <template>
-<div id="section03">
+<div id="section03" data-aos="fade-up" data-aos-once="true">
   <div class="d-flex bg-light s3">
   <div class="w-50">
     <img :src="product.image" class="s3-img">

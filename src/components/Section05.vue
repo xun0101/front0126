@@ -7,7 +7,6 @@
       <b-card
         :title="product.name"
         :img-src="product.image"
-        img-alt="Image"
         img-top
         tag="article"
         style="max-width: 20rem; min-height: 400px;"

@@ -2,11 +2,11 @@
 <div id="section04">
   <div class="d-flex justify-content-center">
   <div class="s4">
-    <img src="../assets/image/chili.png">
+    <img src="../assets/image/chili.png" data-aos="flip-right">
   </div>
   <h1 class="text-center">活動訊息</h1>
   <div class="s4">
-    <img src="../assets/image/chili2.png">
+    <img src="../assets/image/chili2.png" data-aos="flip-left">
   </div>
   </div>
   <div class="d-flex justify-content-center ">

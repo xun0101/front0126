@@ -15,6 +15,12 @@
   <Section05></Section05>
 </div>
 </div>
+<div class="bg-ss">
+  <div class="ss">
+  <h1 class="text-white">從不辣到超級辣，任君選擇</h1>
+  <h1 class="text-white">讓不吃辣的你也能盡情享受</h1>
+  </div>
+</div>
 <div class="container" style="margin-top: 200px;">
 <h1 class="text-center">我要點餐</h1>
 <hr class="border-success">

@@ -1,11 +1,19 @@
 <template>
-<div class="container">
-<b-row style="margin-top: 100px;">
+<div class="container" style="margin: 150px auto;">
+  <div class="d-flex justify-content-center ss">
+  <div class="s4">
+    <img src="../assets/image/chili.png">
+  </div>
+  <h1 class="text-center">我要點餐</h1>
+  <div class="s4">
+    <img src="../assets/image/chili2.png">
+  </div>
+</div>
+<b-row class="mt-3">
     <b-col v-for='product in products' :key='product._id'  cols="6" class="mt-3" >
       <Section03 :product='product'></Section03>
     </b-col>
   </b-row>
-  <button>加入購物車</button>
 </div>
 </template>
 

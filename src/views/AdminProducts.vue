@@ -1,6 +1,9 @@
 <template>
 <b-container class="mt-5">
-  <button class="btn-green border-0 my-5" v-b-modal.modal-product>新增</button>
+  <div class="text-center">
+    <button class="btn-green border-0 my-3" v-b-modal.modal-product>新增</button>
+  </div>
+  <div class="card p-5 shadow">
   <b-table :items="products" :fields='fields' ref='table'>
     <template #cell(image)='data'>
       <img v-if='data.item.image' :src='data.item.image' style="height: 80px;">
@@ -9,7 +12,7 @@
       {{ data.item.sell ? '✔' : '' }}
     </template>
     <template #cell(action)='data'>
-      <button variant='success' @click='editProduct(data.index)' class="btn-green border-0 my-5">編輯</button>
+      <button variant='success' @click='editProduct(data.index)' class="border-0 my-5">📝</button>
     </template>
   </b-table>
   <b-modal id="modal-product"
@@ -85,7 +88,7 @@
       :max-size="3072"
       exceed-size-text="檔案大小不能超過"
     ></img-inputer>
-  </b-modal>
+  </b-modal></div>
 </b-container>
 </template>
 
