@@ -61,7 +61,8 @@ export default {
       ],
       news: [],
       form: {
-        new: ''
+        new: '',
+        index: -1
       },
       modalSubmitting: false
     }
@@ -127,6 +128,9 @@ export default {
           title: '成功',
           text: '刪除成功'
         })
+        console.log(this.form)
+        console.log(this.news[0].new)
+        // this.news[0].new = { ...this.form }
         this.$refs.table.refresh()
       } catch (error) {
         console.log(error)
@@ -136,6 +140,12 @@ export default {
           text: error.response.data.message
         })
       }
+      // console.log(this.form.index)
+      // console.log(this.news.new)
+      // this.news[this.form.index] = {
+      //   new: this.news.new
+      // }
+      // this.$refs.table.refresh()
     }
   },
   async created () {
