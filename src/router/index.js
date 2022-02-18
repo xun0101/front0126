@@ -47,6 +47,14 @@ const routes = [
     }
   },
   {
+    path: '/comment',
+    name: 'Comment',
+    component: () => import(/* webpackChunkName: "comment" */ '../views/Comment.vue'),
+    meta: {
+      title: '留言 | 吃香喝辣'
+    }
+  },
+  {
     path: '/test',
     name: 'Test',
     component: () => import(/* webpackChunkName: "test" */ '../views/Test.vue'),

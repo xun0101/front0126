@@ -11,6 +11,10 @@
       selectable
       @row-selected="onRowSelected"
     >
+    <template #cell(_id)='data'>
+      <!-- {{ data.item.user.account }} -->
+      {{ data.index+1 }}
+    </template>
     <template #cell(user)='data'>
       {{ data.item.user.account }}
     </template>

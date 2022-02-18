@@ -8,10 +8,10 @@
   <b-collapse id="nav-collapse" is-nav>
     <b-navbar-nav class="w-100">
       <div class=" d-flex flex-column flex-lg-row justify-content-lg-start">
-        <b-nav-item class="mx-3" href="#section02" to='/'><b-nav-text><a>本店新訊</a></b-nav-text></b-nav-item>
-        <b-nav-item class="mx-3" href="#section02" to='/introduction'><b-nav-text><a>鍋物介紹</a></b-nav-text></b-nav-item>
-        <b-nav-item class="mx-3" href="#section03" to='/cart'><b-nav-text><a>我要點餐</a></b-nav-text></b-nav-item>
-        <b-nav-item class="mx-3" href="#footer"><b-nav-text><a>聯絡我們</a></b-nav-text></b-nav-item>
+        <b-nav-item class="mx-3" href="#section04"><b-nav-text><a>本店新訊</a></b-nav-text></b-nav-item>
+        <b-nav-item class="mx-3" to='/introduction'><b-nav-text><a>鍋物介紹</a></b-nav-text></b-nav-item>
+        <b-nav-item class="mx-3" to='/cart'><b-nav-text><a>我要點餐</a></b-nav-text></b-nav-item>
+        <b-nav-item class="mx-3" to='/comment'><b-nav-text><a>留言板</a></b-nav-text></b-nav-item>
       </div>
       <div class="ml-auto d-flex flex-column flex-lg-row me lg-container">
         <b-nav-item class="mx-lg-auto" v-if="!user.isLogin" @click="signForLine"><b-nav-text><a>註冊</a></b-nav-text></b-nav-item>

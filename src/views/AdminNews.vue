@@ -4,21 +4,25 @@
     <button class="btn-green border-0 my-3" v-b-modal.modal-new>新增</button>
   </div>
   <div class="card bg-light p-5 shadow">
-  <b-table :items="news" :fields='fields' :sort-by.sync="sortBy" :sort-desc.sync="sortDesc" ref='table'>
+  <b-table :items="news" :fields='fields' :sort-by.sync="sortBy" ref='table'>
     <template #cell(news)='data'>
       {{ data.item.new }}
+      {{ data }}
     </template>
     <template #cell(date)='data'>
       {{ new Date(data.item.date).toLocaleString('zh-tw') }}
     </template>
-    <template #cell(del)='data'>
-      <button variant='success' @click='del(data.item._id)' class="border-0">
+    <template #cell(action)='data'>
+      <button variant='success' @click='del(data.item._id, data.index)' class="border-0">
         <font-awesome-icon :icon="['fas', 'trash']" style="color:#1A4605"/>
+      </button>
+      <button variant='success' class="border-0" v-b-modal.modal-edit>
+        📝
       </button>
     </template>
   </b-table>
   <b-modal id="modal-new"
-    title="發布消息"
+    title="發佈消息"
     centered
     ok-variant='success'
     ok-title='送出'
@@ -44,7 +48,36 @@
       placeholder='請輸入內容'
       :state = 'state.new'
     ></b-form-input>
-  </b-modal></div>
+  </b-modal>
+  <!-- <b-modal id="modal-edit"
+    title="修改消息"
+    centered
+    ok-variant='success'
+    ok-title='送出'
+    cancel-variant='danger'
+    cancel-title='取消'
+    @ok="edit"
+    @hidden="resetForm"
+    :ok-disabled="modalSubmitting"
+    :cancel-disabled="modalSubmitting"
+    >
+    <b-form-group
+      label='消息公佈'
+      label-for='input-news'
+      description='必填欄位'
+      invalid-feedback='說明必填'
+    ></b-form-group>
+    <b-form-input
+      id="input-news"
+      v-model='form.new'
+      required
+      rows="3"
+      max-rows="6"
+      placeholder='請輸入內容'
+      :state = 'state.new'
+    ></b-form-input>
+  </b-modal> -->
+  </div>
 </b-container>
 </template>
 
@@ -53,16 +86,14 @@ export default {
   data () {
     return {
       sortBy: 'date',
-      sortDesc: true,
       fields: [
         { key: 'news', label: '最新消息' },
         { key: 'date', label: '發佈時間' },
-        { key: 'del', label: '操作' }
+        { key: 'action', label: '操作' }
       ],
       news: [],
       form: {
-        new: '',
-        index: -1
+        new: ''
       },
       modalSubmitting: false
     }
@@ -107,6 +138,39 @@ export default {
 
       this.modalSubmitting = false
     },
+
+    // async edit (event) {
+    //   event.preventDefault()
+    //   if (!this.state.new) {
+    //     this.$swal({
+    //       icon: 'error',
+    //       title: '錯誤',
+    //       text: '缺少必填欄位'
+    //     })
+    //     return
+    //   }
+    //   this.modalSubmitting = true
+
+    //   try {
+    //     await this.api.patch('/news/' + this.form.id, this.form, {
+    //       headers: {
+    //         authorization: 'Bearer ' + this.user.token
+    //       }
+    //     })
+    //     this.news[this.form.index] = { ...this.form }
+    //     this.$refs.table.refresh()
+    //     this.$bvModal.hide('modal-new')
+    //   } catch (error) {
+    //     console.log(error)
+    //     this.$swal({
+    //       icon: 'error',
+    //       title: '錯誤',
+    //       text: error.response.data.message
+    //     })
+    //   }
+
+    //   this.modalSubmitting = false
+    // },
     resetForm (event) {
       if (this.modalSubmitting) {
         event.preventDefault()
@@ -116,9 +180,9 @@ export default {
         new: ''
       }
     },
-    async del (id) {
+    async del (id, index) {
       try {
-        await this.api.delete('/news/dels/' + id, {
+        const { data } = await this.api.delete('/news/dels/' + id, {
           headers: {
             authorization: 'Bearer ' + this.user.token
           }
@@ -128,9 +192,10 @@ export default {
           title: '成功',
           text: '刪除成功'
         })
-        console.log(this.form)
-        console.log(this.news[0].new)
-        // this.news[0].new = { ...this.form }
+        console.log(index)
+        console.log(data)
+        // this.news[index] = [...this.form]
+        this.news.splice(index, 1)
         this.$refs.table.refresh()
       } catch (error) {
         console.log(error)
@@ -140,12 +205,6 @@ export default {
           text: error.response.data.message
         })
       }
-      // console.log(this.form.index)
-      // console.log(this.news.new)
-      // this.news[this.form.index] = {
-      //   new: this.news.new
-      // }
-      // this.$refs.table.refresh()
     }
   },
   async created () {

@@ -1,13 +1,10 @@
 <template>
-  <div class="container" style="margin-top:100px;">
-  <div class="card bg-light p-5 shadow">
-  <div>
-    <b-table
-      :items="orders"
-      :fields="fields"
-      ref="selectableTable"
-      selectable
-    >
+<b-container style="margin-top: 150px;">
+  <b-table :items="orders" :fields="fields">
+    <template #cell(_id)='data'>
+      <!-- {{ data.item.user.account }} -->
+      {{ data.index+1 }}
+    </template>
     <template #cell(user)='data'>
       {{ data.item.user.account }}
     </template>
@@ -21,22 +18,12 @@
         </li>
       </ul>
     </template>
-      <template #cell(selected)="{ rowSelected }">
-        <template v-if="rowSelected">
-          <span aria-hidden="true">&check;</span>
-          <span class="sr-only">Selected</span>
-        </template>
-        <template v-else>
-          <span aria-hidden="true">&nbsp;</span>
-          <span class="sr-only">Not selected</span>
-        </template>
-      </template>
-    </b-table>
-  </div>
-  <b-table :items="selected" :fields="field">
-
+    <template #cell(state)='data'>
+      {{ data.item._id }}
+      <button  @click='finish(data.item._id, data.index)'>{{ data.item.state }}</button>
+    </template>
   </b-table>
-  </div></div>
+</b-container>
 </template>
 
 <script>
@@ -48,9 +35,13 @@ export default {
         { key: 'user', label: '使用者' },
         { key: 'date', label: '日期' },
         { key: 'products', label: '商品' },
-        { key: 'selected', label: '完成' }
+        { key: 'state', label: '完成' }
       ],
       orders: []
+    }
+  },
+  methods: {
+    async finish (id, index) {
     }
   },
   async created () {
