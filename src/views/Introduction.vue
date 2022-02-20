@@ -43,18 +43,7 @@
 <img src="https://www.jhujian.com.tw/images/home/hotPotFront.png" class="m1" >
 </div>
 </template>
-<style>
-.m1{
-  position: fixed;
-  bottom:0;
-  right: 0;
-}
-.m2{
-  position: fixed;
-  bottom:0;
-  right: 0;
-}
-</style>
+
 <script>
 export default {
   data () {
