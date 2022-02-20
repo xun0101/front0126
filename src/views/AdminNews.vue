@@ -1,13 +1,12 @@
 <template>
 <b-container class="mt-5">
   <div class="text-center">
-    <button class="btn-green border-0 my-3" v-b-modal.modal-new>新增</button>
+    <button class="btn-green border-0 my-3" v-b-modal.modal-new @click="aa=true">新增</button>
   </div>
   <div class="card bg-light p-5 shadow">
-  <b-table :items="news" :fields='fields' :sort-by.sync="sortBy" ref='table'>
+  <b-table :items="news" :fields='fields' ref='table'>
     <template #cell(news)='data'>
       {{ data.item.new }}
-      {{ data }}
     </template>
     <template #cell(date)='data'>
       {{ new Date(data.item.date).toLocaleString('zh-tw') }}
@@ -16,7 +15,7 @@
       <button variant='success' @click='del(data.item._id, data.index)' class="border-0">
         <font-awesome-icon :icon="['fas', 'trash']" style="color:#1A4605"/>
       </button>
-      <button variant='success' class="border-0" v-b-modal.modal-edit>
+      <button variant='success' @click='edit(data.item._id, data.index)' class="border-0">
         📝
       </button>
     </template>
@@ -49,34 +48,6 @@
       :state = 'state.new'
     ></b-form-input>
   </b-modal>
-  <!-- <b-modal id="modal-edit"
-    title="修改消息"
-    centered
-    ok-variant='success'
-    ok-title='送出'
-    cancel-variant='danger'
-    cancel-title='取消'
-    @ok="edit"
-    @hidden="resetForm"
-    :ok-disabled="modalSubmitting"
-    :cancel-disabled="modalSubmitting"
-    >
-    <b-form-group
-      label='消息公佈'
-      label-for='input-news'
-      description='必填欄位'
-      invalid-feedback='說明必填'
-    ></b-form-group>
-    <b-form-input
-      id="input-news"
-      v-model='form.new'
-      required
-      rows="3"
-      max-rows="6"
-      placeholder='請輸入內容'
-      :state = 'state.new'
-    ></b-form-input>
-  </b-modal> -->
   </div>
 </b-container>
 </template>
@@ -85,7 +56,6 @@
 export default {
   data () {
     return {
-      sortBy: 'date',
       fields: [
         { key: 'news', label: '最新消息' },
         { key: 'date', label: '發佈時間' },
@@ -95,7 +65,10 @@ export default {
       form: {
         new: ''
       },
-      modalSubmitting: false
+      modalSubmitting: false,
+      aa: true,
+      bb: '',
+      cc: ''
     }
   },
   computed: {
@@ -117,15 +90,27 @@ export default {
         return
       }
       this.modalSubmitting = true
+      console.log(this.cc)
 
       try {
-        const { data } = await this.api.post('/news', this.form, {
-          headers: {
-            authorization: 'Bearer ' + this.user.token
-          }
-        })
-        console.log(data.result)
-        this.news.push(data.result)
+        if (this.aa === true) {
+          const { data } = await this.api.post('/news', this.form, {
+            headers: {
+              authorization: 'Bearer ' + this.user.token
+            }
+          })
+          console.log(data.result)
+          this.news.push(data.result)
+        } else {
+          console.log(this.form)
+          await this.api.patch('/news/' + this.bb, this.form, {
+            headers: {
+              authorization: 'Bearer ' + this.user.token
+            }
+          })
+          this.news[this.cc] = { ...this.form }
+          this.$refs.table.refresh()
+        }
         this.$bvModal.hide('modal-new')
       } catch (error) {
         console.log(error)
@@ -138,39 +123,14 @@ export default {
 
       this.modalSubmitting = false
     },
-
-    // async edit (event) {
-    //   event.preventDefault()
-    //   if (!this.state.new) {
-    //     this.$swal({
-    //       icon: 'error',
-    //       title: '錯誤',
-    //       text: '缺少必填欄位'
-    //     })
-    //     return
-    //   }
-    //   this.modalSubmitting = true
-
-    //   try {
-    //     await this.api.patch('/news/' + this.form.id, this.form, {
-    //       headers: {
-    //         authorization: 'Bearer ' + this.user.token
-    //       }
-    //     })
-    //     this.news[this.form.index] = { ...this.form }
-    //     this.$refs.table.refresh()
-    //     this.$bvModal.hide('modal-new')
-    //   } catch (error) {
-    //     console.log(error)
-    //     this.$swal({
-    //       icon: 'error',
-    //       title: '錯誤',
-    //       text: error.response.data.message
-    //     })
-    //   }
-
-    //   this.modalSubmitting = false
-    // },
+    edit (id, index) {
+      console.log(index)
+      this.form = { ...this.news[index] }
+      this.$bvModal.show('modal-new')
+      this.aa = false
+      this.bb = id
+      this.cc = index
+    },
     resetForm (event) {
       if (this.modalSubmitting) {
         event.preventDefault()

@@ -1,6 +1,18 @@
 <template>
-<div style="width: 60vw; margin:150px auto;">
-<div class="d-flex justify-content-center ss">
+<div style="margin:80px auto;">
+<div class="d-flex" style="width:100%;background:black;">
+  <div style="width:60%;height:450px;" class="i-img" data-aos="fade-down-right">
+    <img class="img-fluid " src='../assets/image/chinese-sichuan-specialties-spicy-beef-frog.jpg'  style="width:100%;height:100%;object-fit:cover;">
+  </div>
+  <div class="d-flex align-items-center justify-content-center text-light flex-column">
+  <h1 class="textl">辣到不辣</h1>
+  <h1 class="textl">任君選擇</h1>
+  </div>
+    <div style="width:60%;height:450px;"  class="i-img1" data-aos="fade-up-left">
+    <img class="img-fluid" src='../assets/image/ss.jpg' style="width:100%;height:100%;object-fit:cover;">
+  </div>
+</div>
+<div class="d-flex justify-content-center ss mt-5">
   <div class="s4">
     <img src="../assets/image/chili.png">
   </div>
@@ -9,7 +21,7 @@
     <img src="../assets/image/chili2.png">
   </div>
 </div>
-<b-row>
+<b-row style="width:60vw;margin:auto;">
   <b-card no-body class="overflow-hidden" style="max-width: 540px; margin: 30px 20px;" v-for='product in products' :key='product._id' data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-500">
     <b-row no-gutters>
       <b-col md="6">

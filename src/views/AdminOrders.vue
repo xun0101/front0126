@@ -1,18 +1,7 @@
 <template>
-  <div class="container" style="margin-top:100px;">
-  <div class="card bg-light p-5 shadow">
-  <div>
-    <b-table
-      :items="orders"
-      :fields="fields"
-      :select-mode="selectMode"
-      responsive="sm"
-      ref="selectableTable"
-      selectable
-      @row-selected="onRowSelected"
-    >
+<b-container style="margin-top: 150px;">
+  <b-table :items="orders" :fields="fields" ref='table'>
     <template #cell(_id)='data'>
-      <!-- {{ data.item.user.account }} -->
       {{ data.index+1 }}
     </template>
     <template #cell(user)='data'>
@@ -28,30 +17,27 @@
         </li>
       </ul>
     </template>
-      <template #cell(selected)="{ rowSelected }">
-        <template v-if="rowSelected">
-          <span aria-hidden="true">&check;</span>
-          <span class="sr-only">Selected</span>
-        </template>
-        <template v-else>
-          <span aria-hidden="true">&nbsp;</span>
-          <span class="sr-only">Not selected</span>
-        </template>
-      </template>
-    </b-table>
-    <p>
-      <b-button class="btn-green border-0" size="sm" @click="selectAllRows">完成所有</b-button>
-      <b-button class="btn-green border-0 mx-3" size="sm" @click="clearSelected">均未完成</b-button>
-    </p>
-    <p>
-      完成數:<br>
-      {{ selected.length }}
-    </p>
-  </div>
-  <b-table :items="selected" :fields="field">
-
+    <template #cell(state)='data'>
+      <button  @click='check(data.item._id, data.index)' v-b-modal.modal-state>確認</button>
+      <p>已完成:{{ data.item.state }}</p>
+      <div v-if='data.item.state === true'>✔</div>
+    </template>
   </b-table>
-  </div></div>
+  <b-modal id="modal-state"
+    title="操作"
+    centered
+    ok-variant='success'
+    ok-title='送出'
+    cancel-variant='danger'
+    cancel-title='取消'
+    @ok="submitModal"
+    >
+    <b-form-group label="上架">
+      <b-form-radio v-model='form.state' :value='true'>已完成</b-form-radio>
+      <b-form-radio v-model='form.state' :value='false'>未完成</b-form-radio>
+    </b-form-group>
+  </b-modal>
+</b-container>
 </template>
 
 <script>
@@ -63,26 +49,45 @@ export default {
         { key: 'user', label: '使用者' },
         { key: 'date', label: '日期' },
         { key: 'products', label: '商品' },
-        { key: 'selected', label: '完成' }
+        { key: 'state', label: '完成' }
       ],
       orders: [],
-      selectMode: 'multi',
-      selected: [],
-      field: [
-        { key: '_id', label: '單號' }
-      ]
+      form: {
+        state: false
+      },
+      aa: '',
+      bb: ''
     }
   },
   methods: {
-    async onRowSelected (id) {
+    async submitModal (event) {
+      console.log(event)
+      console.log(this.form)
+      console.log(this.orders)
+      event.preventDefault()
+      try {
+        await this.api.patch('/orders/' + this.aa, this.form, {
+          headers: {
+            authorization: 'Bearer ' + this.user.token
+          }
+        })
+        this.orders[this.bb].state = this.form.state
+        this.$refs.table.refresh()
+        this.$bvModal.hide('modal-state')
+      } catch (error) {
+        console.log(error)
+        this.$swal({
+          icon: 'error',
+          title: '錯誤',
+          text: error.response.data.message
+        })
+      }
+    },
+    check (id, index) {
       console.log(id)
-      this.selected = id
-    },
-    selectAllRows () {
-      this.$refs.selectableTable.selectAllRows()
-    },
-    clearSelected () {
-      this.$refs.selectableTable.clearSelected()
+      console.log(index)
+      this.aa = id
+      this.bb = index
     }
   },
   async created () {

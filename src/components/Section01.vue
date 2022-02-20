@@ -3,7 +3,7 @@
     <swiper id="section01" :options="swiperOption" ref="swiper" class="swiper">
       <!-- Loops through item data and creates a carousel item -->
       <swiper-slide>
-        <img src="../assets/image/home-1.png">
+        <img src="../assets/image/chinese-sichuan-specialties-spicy-beef-frog.jpg">
       </swiper-slide>
       <swiper-slide>
         <img src="../assets/image/臭臭鍋.png" >
@@ -16,6 +16,9 @@
         </div>
       </swiper-slide>
       <swiper-slide>
+        <img src="../assets/image/spicy-meat-pork-boil-hot-pot.jpg">
+      </swiper-slide>
+      <swiper-slide>
         <img src="../assets/image/鴨血豆腐煲.png" >
         <div class="mask">
           <div class="mask-text" style="width:600px;">
@@ -23,6 +26,9 @@
           </div>
           <p class="mask-p3">香嫩入味，地方媽媽強推</p>
         </div>
+      </swiper-slide>
+      <swiper-slide>
+        <img src="../assets/image/chicken-fried-hot-pot-with-spicy-sauce-korean-style.jpg">
       </swiper-slide>
       <swiper-slide>
         <img src="../assets/image/肥腸臭臭鍋.png" >

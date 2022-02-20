@@ -10,11 +10,10 @@
         img-top
         tag="article"
         style="max-width: 20rem; min-height: 400px;"
-        align="center"
         class="mb-2 mx-auto"
       >
       <div>
-        <b-card-text class="h5">
+        <b-card-text>
           {{product.description}}
         </b-card-text>
       </div>
