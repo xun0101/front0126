@@ -3,7 +3,7 @@
 <div class="container" >
   <h1 class="text-center">特色介紹</h1>
 <b-row class="s2-row mt-5">
-  <b-col class="p-0 s2-col">
+  <b-col class="p-0 s2-col d-none d-lg-block">
     <img src="../assets/image/乾拌麵.png">
   </b-col>
   <b-col class=" p-3 d-flex align-items-center" >

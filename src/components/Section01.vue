@@ -3,23 +3,44 @@
     <swiper id="section01" :options="swiperOption" ref="swiper" class="swiper">
       <!-- Loops through item data and creates a carousel item -->
       <swiper-slide>
-        <img src="../assets/image/chinese-sichuan-specialties-spicy-beef-frog.jpg">
+        <div class="d-block d-lg-none" style="width: 100vw; height: 100vh;">
+        <img src="../assets/image/chinese-sichuan-specialties-spicy-beef-frog.jpg" style="width:100%;height:100%; object-fit:cover;">
+        </div>
+        <img class="d-none d-lg-block" src="../assets/image/chinese-sichuan-specialties-spicy-beef-frog.jpg">
+        <div class="mask">
+          <div class="mask-text1" style="width:600px;">
+            <img src="../assets/image/title4.png" style="width:100%;height:100%; object-fit:cover;">
+          </div>
+        </div>
       </swiper-slide>
       <swiper-slide>
-        <img src="../assets/image/臭臭鍋.png" >
+        <div class="d-block d-lg-none" style="width: 100vw; height: 100vh;">
+        <img src="../assets/image/臭臭鍋.png" style="width:100%;height:100%; object-fit:cover;">
+        </div>
+        <img class="d-none d-lg-block" src="../assets/image/臭臭鍋.png" >
         <div class="mask">
           <div class="mask-text" style="width:600px;">
             <img src="../assets/image/title1.png" style="width:100%;height:100%; object-fit:cover;">
           </div>
           <p class="mask-p">經典原味，俘虜你的味</p>
-          <!-- <p class="mask-p2">俘虜你的味</p> -->
         </div>
       </swiper-slide>
       <swiper-slide>
-        <img src="../assets/image/spicy-meat-pork-boil-hot-pot.jpg">
+        <div class="d-block d-lg-none" style="width: 100vw; height: 100vh;">
+        <img src="../assets/image/spicy-meat-pork-boil-hot-pot.jpg" style="width:100%;height:100%; object-fit:cover;">
+        </div>
+        <img class="d-none d-lg-block" src="../assets/image/spicy-meat-pork-boil-hot-pot.jpg">
+          <div class="mask">
+          <div class="mask-text1" style="width:600px;">
+            <img src="../assets/image/title5.png" style="width:100%;height:100%; object-fit:cover;">
+          </div>
+        </div>
       </swiper-slide>
       <swiper-slide>
-        <img src="../assets/image/鴨血豆腐煲.png" >
+        <div class="d-block d-lg-none" style="width: 100vw; height: 100vh;">
+        <img src="../assets/image/鴨血豆腐煲.png" style="width:100%;height:100%; object-fit:cover;">
+        </div>
+        <img class="d-none d-lg-block" src="../assets/image/鴨血豆腐煲.png" >
         <div class="mask">
           <div class="mask-text" style="width:600px;">
             <img src="../assets/image/title3.png" style="width:100%;height:100%; object-fit:cover;">
@@ -28,10 +49,21 @@
         </div>
       </swiper-slide>
       <swiper-slide>
-        <img src="../assets/image/chicken-fried-hot-pot-with-spicy-sauce-korean-style.jpg">
+      <div class="d-block d-lg-none" style="width: 100vw; height: 100vh;">
+        <img src="../assets/image/chicken-fried-hot-pot-with-spicy-sauce-korean-style.jpg" style="width:100%;height:100%; object-fit:cover;">
+      </div>
+        <img class="d-none d-lg-block" src="../assets/image/chicken-fried-hot-pot-with-spicy-sauce-korean-style.jpg">
+        <div class="mask">
+          <div class="mask-text2" style="width:600px;">
+            <img src="../assets/image/title6.png" style="width:100%;height:100%; object-fit:cover;">
+          </div>
+        </div>
       </swiper-slide>
       <swiper-slide>
-        <img src="../assets/image/肥腸臭臭鍋.png" >
+      <div class="d-block d-lg-none" style="width: 100vw; height: 100vh;">
+        <img src="../assets/image/肥腸臭臭鍋.png" style="width:100%;height:100%; object-fit:cover;">
+      </div>
+        <img class="d-none d-lg-block" src="../assets/image/肥腸臭臭鍋.png" >
         <div class="mask">
           <div class="mask-text" style="width:600px;">
             <img src="../assets/image/title2.png" style="width:100%;height:100%; object-fit:cover;">
@@ -69,7 +101,6 @@
   position: absolute;
   width:100vw;
   height: 100vh;
-  /* background: rgba(0,0,0,.4); */
 }
 .mask-text{
   display: none;
@@ -81,8 +112,28 @@
   z-index: 99;
   font-size: 50px;
 }
+.mask-text1{
+  display: none;
+  position: absolute;
+  top: 55%;
+  left: 16%;
+  transform: translate(-50%);
+  color: black;
+  z-index: 99;
+  font-size: 50px;
+}
+.mask-text2{
+  display: none;
+  position: absolute;
+  top: 10%;
+  right: -14%;
+  transform: translate(-50%);
+  color: black;
+  z-index: 99;
+  font-size: 50px;
+}
 .mask-p{
-  /* display: none; */
+  display: none;
   position: absolute;
   top: 40%;
   left: 8%;
@@ -92,7 +143,7 @@
 }
 
 .mask-p2{
-  /* display: none; */
+  display: none;
   position: absolute;
   top: 35%;
   left: 4.5%;
@@ -101,7 +152,7 @@
   font-size: 25px;
 }
 .mask-p3{
-  /* display: none; */
+  display: none;
   position: absolute;
   top: 40%;
   left: 6%;
@@ -134,7 +185,12 @@
 .mask{
   display: block;
 }
-.mask-text{
+.mask-text,
+.mask-text1,
+.mask-text2,
+.mask-p,
+.mask-p2,
+.mask-p3{
   display: block;
 }
 }

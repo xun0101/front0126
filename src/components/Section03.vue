@@ -1,7 +1,7 @@
 <template>
 <div id="section03" data-aos="fade-up" data-aos-once="true">
-  <div class="d-flex bg-light s3">
-  <div class="w-50">
+  <div class="d-flex flex-column flex-lg-row bg-light s3">
+  <div class="s3-div">
     <img :src="product.image" class="s3-img">
   </div>
   <div class="m-auto">

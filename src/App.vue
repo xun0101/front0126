@@ -8,7 +8,7 @@
   <b-collapse id="nav-collapse" is-nav>
     <b-navbar-nav class="w-100">
       <div class=" d-flex flex-column flex-lg-row justify-content-lg-start">
-        <b-nav-item class="mx-3" to='/news'><b-nav-text><a>本店新訊</a></b-nav-text></b-nav-item>
+        <b-nav-item class="mx-3" to='/news'><b-nav-text><a>本店訊息</a></b-nav-text></b-nav-item>
         <b-nav-item class="mx-3" to='/introduction'><b-nav-text><a>鍋物介紹</a></b-nav-text></b-nav-item>
         <b-nav-item class="mx-3" to='/cart'><b-nav-text><a>我要點餐</a></b-nav-text></b-nav-item>
         <b-nav-item class="mx-3" to='/comment'><b-nav-text><a>留言板</a></b-nav-text></b-nav-item>
@@ -31,7 +31,6 @@
       <b-nav-item class="ms-lg-auto d-none d-lg-block"><b-nav-text><a>|</a></b-nav-text></b-nav-item>
       <b-nav-item class="ms-lg-auto" v-if="!user.isLogin" v-b-modal.modal-1><b-nav-text><a>登入</a></b-nav-text></b-nav-item>
       <b-nav-item class="ms-lg-auto" v-if="user.isLogin" @click="logout"><b-nav-text><a>登出</a></b-nav-text></b-nav-item>
-      <b-nav-item class="ms-lg-auto" to='/test'><b-nav-text><a>測試</a></b-nav-text></b-nav-item>
       </div>
     </b-navbar-nav>
     </b-collapse>
@@ -99,7 +98,7 @@ export default {
       link += '&client_id=' + process.env.VUE_APP_CHANNEL_ID
       link += '&redirect_uri=' + process.env.VUE_APP_CALLBACK_URL // /users/signInLine
       link += '&state=' + this.randomState
-      link += '&bot_prompt=normal' // 預設要加官方帳號好友
+      // link += '&bot_prompt=normal' // 預設要加官方帳號好友
       link += '&scope=openid%20profile' // 預設申請使用者資料及 token
       window.location.href = link
     },

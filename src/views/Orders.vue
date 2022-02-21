@@ -3,7 +3,7 @@
 <h1 class="text-center">訂單明細</h1>
 <hr class="border-danger">
 <div class="card bg-light p-5 shadow">
-  <b-table striped hover :items="orders" :fields='fields'>
+  <b-table striped hover :items="orders" :fields='fields' stacked="md">
     <template #cell(date)='data'>
       {{ new Date(data.item.date).toLocaleString('zh-tw') }}
     </template>

@@ -4,7 +4,7 @@
     <button class="btn-green border-0 my-3" v-b-modal.modal-product>新增</button>
   </div>
   <div class="card p-5 shadow">
-  <b-table :items="products" :fields='fields' ref='table'>
+  <b-table :items="products" :fields='fields' ref='table' stacked="md">
     <template #cell(image)='data'>
       <img v-if='data.item.image' :src='data.item.image' style="height: 80px;">
     </template>

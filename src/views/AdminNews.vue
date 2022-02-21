@@ -4,7 +4,7 @@
     <button class="btn-green border-0 my-3" v-b-modal.modal-new @click="aa=true">新增</button>
   </div>
   <div class="card bg-light p-5 shadow">
-  <b-table :items="news" :fields='fields' ref='table'>
+  <b-table :items="news" :fields='fields' ref='table' stacked="md">
     <template #cell(news)='data'>
       {{ data.item.new }}
     </template>

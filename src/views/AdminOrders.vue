@@ -1,6 +1,7 @@
 <template>
 <b-container style="margin-top: 150px;">
-  <b-table :items="orders" :fields="fields" ref='table'>
+<div class="card bg-light p-5 shadow">
+  <b-table :items="orders" :fields="fields" ref='table' stacked="md">
     <template #cell(_id)='data'>
       {{ data.index+1 }}
     </template>
@@ -18,11 +19,13 @@
       </ul>
     </template>
     <template #cell(state)='data'>
-      <button  @click='check(data.item._id, data.index)' v-b-modal.modal-state>確認</button>
-      <p>已完成:{{ data.item.state }}</p>
+      <button class="ao-btn" @click='check(data.item._id, data.index)' v-b-modal.modal-state>確認</button>
+      <div class="d-flex mt-2">
+        <p>已完成:{{ data.item.state }}</p>
       <div v-if='data.item.state === true'>✔</div>
+      </div>
     </template>
-  </b-table>
+  </b-table></div>
   <b-modal id="modal-state"
     title="操作"
     centered

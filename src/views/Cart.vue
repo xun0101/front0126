@@ -1,5 +1,6 @@
 <template>
-<div class="container" style="margin: 150px auto;">
+<div class="cart">
+  <div class="container">
   <div class="d-flex justify-content-center ss">
   <div class="s4">
     <img src="../assets/image/chili.png">
@@ -13,7 +14,10 @@
     <b-col v-for='product in products' :key='product._id'  cols="6" class="mt-3" >
       <Section03 :product='product'></Section03>
     </b-col>
-  </b-row>
+</b-row></div>
+<div class="c-img">
+  <img src="../assets/image/fog.png" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-easing="ease-in-out" data-aos-once="false">
+</div>
 </div>
 </template>
 

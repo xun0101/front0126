@@ -10,7 +10,7 @@
   </div>
 </div>
   <div class="card bg-light mt-4 p-5 shadow">
-  <b-table :items="comments" :fields='fields' :sort-by.sync="sortBy" :sort-desc.sync="sortDesc" ref='table'>
+  <b-table :items="comments" :fields='fields' :sort-by.sync="sortBy" :sort-desc.sync="sortDesc" ref='table' stacked="md">
     <template #cell(user)='data'>
       {{ data.item.user.account }}
     </template>
@@ -25,7 +25,7 @@
     <button class="btn-green border-0 my-3" v-b-modal.modal-comment v-if="user.isLogin">新增</button>
   </div>
   <b-modal id="modal-comment"
-    title="發布消息"
+    title="留言"
     centered
     ok-variant='success'
     ok-title='送出'
@@ -37,7 +37,6 @@
     :cancel-disabled="modalSubmitting"
     >
     <b-form-group
-      label='消息公佈'
       label-for='input-comments'
       description='必填欄位'
       invalid-feedback='說明必填'
