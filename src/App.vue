@@ -98,7 +98,7 @@ export default {
       link += '&client_id=' + process.env.VUE_APP_CHANNEL_ID
       link += '&redirect_uri=' + process.env.VUE_APP_CALLBACK_URL // /users/signInLine
       link += '&state=' + this.randomState
-      // link += '&bot_prompt=normal' // 預設要加官方帳號好友
+      link += '&bot_prompt=normal' // 預設要加官方帳號好友
       link += '&scope=openid%20profile' // 預設申請使用者資料及 token
       window.location.href = link
     },
