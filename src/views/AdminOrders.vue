@@ -21,7 +21,7 @@
     <template #cell(state)='data'>
       <button class="ao-btn" @click='check(data.item._id, data.index)' v-b-modal.modal-state>確認</button>
       <div class="d-flex mt-2">
-        <p>已完成:{{ data.item.state }}</p>
+        <p>已完成:</p>
       <div v-if='data.item.state === true'>✔</div>
       </div>
     </template>
