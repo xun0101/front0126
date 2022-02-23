@@ -3,6 +3,7 @@ export default () => {
     token: '',
     account: '',
     role: 0,
-    cart: 0
+    cart: 0,
+    avatar: ''
   }
 }

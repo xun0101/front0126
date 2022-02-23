@@ -83,11 +83,6 @@ export default {
         account: this.form.account.length === 0 ? null : this.form.account.length >= 4 && this.form.account.length <= 20,
         password: this.form.password.length === 0 ? null : this.form.password.length >= 4 && this.form.password.length <= 20
       }
-    },
-    total1 () {
-      return this.user.cart.reduce((accumulator, currentValue) => {
-        return accumulator + currentValue.quantity
-      }, 0)
     }
   },
   methods: {
