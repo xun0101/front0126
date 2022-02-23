@@ -10,7 +10,23 @@
   </div>
 </div>
   <div class="card bg-light mt-4 p-5 shadow">
-  <b-table :items="comments" :fields='fields' :sort-by.sync="sortBy" :sort-desc.sync="sortDesc" ref='table' stacked="md">
+    <b-pagination
+    v-model="currentPage"
+    :total-rows="rows"
+    :per-page="perPage"
+    aria-controls="my-table"
+    align="center"
+  ></b-pagination>
+  <b-table
+  id="my-table"
+  :per-page="perPage"
+  :current-page="currentPage"
+  :items="comments"
+  :fields='fields'
+  :sort-by.sync="sortBy"
+  :sort-desc.sync="sortDesc"
+  ref='table'
+  stacked="md">
     <template #cell(user)='data'>
       {{ data.item.user.account }}
     </template>
@@ -20,7 +36,8 @@
     <template #cell(date)='data'>
       {{ new Date(data.item.date).toLocaleString('zh-tw') }}
     </template>
-  </b-table></div>
+  </b-table>
+  </div>
   <div class="text-center">
     <button class="btn-green border-0 my-3" v-b-modal.modal-comment v-if="user.isLogin">新增</button>
   </div>
@@ -51,13 +68,28 @@
       :state = 'state.comment'
     ></b-form-input>
   </b-modal>
+  <div class="c-bg" data-aos="fade-right">
+    <img src="../assets/image/pepper.png">
+  </div>
 </b-container>
 </template>
+
+<style>
+.page-item.active .page-link{
+  background-color: #8CA93E;
+  border-color: #8CA93E;
+}
+.page-link{
+  color: #8CA93E;
+}
+</style>
 
 <script>
 export default {
   data () {
     return {
+      perPage: 4,
+      currentPage: 1,
       sortBy: 'date',
       sortDesc: true,
       fields: [
@@ -77,6 +109,9 @@ export default {
       return {
         comment: this.form.comment.length === 0 ? null : true
       }
+    },
+    rows () {
+      return this.comments.length
     }
   },
   methods: {

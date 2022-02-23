@@ -12,7 +12,7 @@
     <img src="../assets/image/pig.png">
   </div>
 </div>
-    <b-row class="mt-4 nr" cols="2">
+    <b-row class="mt-4" cols="2">
       <b-col>
         <img class="img-fluid" src="../assets/image/豬肉標示貼紙-台灣豬標示(JPG).png" data-aos="flip-left" data-aos-offset="600">
       </b-col>
@@ -32,6 +32,9 @@
         <h5 class="n-text" data-aos="fade-left" data-aos-offset="350">雞肉原產地：台灣</h5>
       </b-col>
   </b-row>
+  <div class="w-25 mx-auto">
+    <img class="img-fluid" src="../assets/image/hot-pot.png" data-aos="flip-right" data-aos-offset="250">
+  </div>
   </div>
 </b-container>
 </template>

@@ -58,6 +58,12 @@ export default {
       products: []
     }
   },
+  methods: {
+    move () {
+      var element = document.getElementById('section04')
+      element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' })
+    }
+  },
   async created () {
     try {
       const { data } = await this.api.get('/products')
@@ -68,12 +74,6 @@ export default {
         title: '錯誤',
         text: '商品取得失敗'
       })
-    }
-  },
-  methods: {
-    move () {
-      var element = document.getElementById('section04')
-      element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' })
     }
   }
 }

@@ -8,7 +8,7 @@
         </div>
         <img class="d-none d-lg-block" src="../assets/image/chinese-sichuan-specialties-spicy-beef-frog.jpg">
         <div class="mask">
-          <div class="mask-text1" style="width:600px;">
+          <div class="mask-text1" style="width:750px;">
             <img src="../assets/image/title4.png" style="width:100%;height:100%; object-fit:cover;">
           </div>
         </div>
@@ -22,7 +22,6 @@
           <div class="mask-text" style="width:600px;">
             <img src="../assets/image/title1.png" style="width:100%;height:100%; object-fit:cover;">
           </div>
-          <p class="mask-p">經典原味，俘虜你的味</p>
         </div>
       </swiper-slide>
       <swiper-slide>
@@ -31,7 +30,7 @@
         </div>
         <img class="d-none d-lg-block" src="../assets/image/spicy-meat-pork-boil-hot-pot.jpg">
           <div class="mask">
-          <div class="mask-text1" style="width:600px;">
+          <div class="mask-text3" style="width:750px;">
             <img src="../assets/image/title5.png" style="width:100%;height:100%; object-fit:cover;">
           </div>
         </div>
@@ -45,7 +44,6 @@
           <div class="mask-text" style="width:600px;">
             <img src="../assets/image/title3.png" style="width:100%;height:100%; object-fit:cover;">
           </div>
-          <p class="mask-p3">香嫩入味，地方媽媽強推</p>
         </div>
       </swiper-slide>
       <swiper-slide>
@@ -54,7 +52,7 @@
       </div>
         <img class="d-none d-lg-block" src="../assets/image/chicken-fried-hot-pot-with-spicy-sauce-korean-style.jpg">
         <div class="mask">
-          <div class="mask-text2" style="width:600px;">
+          <div class="mask-text2" style="width:800px;">
             <img src="../assets/image/title6.png" style="width:100%;height:100%; object-fit:cover;">
           </div>
         </div>
@@ -68,7 +66,6 @@
           <div class="mask-text" style="width:600px;">
             <img src="../assets/image/title2.png" style="width:100%;height:100%; object-fit:cover;">
           </div>
-          <p class="mask-p2">軟Q肥腸，多汁味美</p>
         </div>
       </swiper-slide>
 
@@ -115,8 +112,8 @@
 .mask-text1{
   display: none;
   position: absolute;
-  top: 55%;
-  left: 16%;
+  top: 0%;
+  left: 19%;
   transform: translate(-50%);
   color: black;
   z-index: 99;
@@ -125,40 +122,23 @@
 .mask-text2{
   display: none;
   position: absolute;
-  top: 10%;
-  right: -14%;
+  top: 60%;
+  right: -20%;
   transform: translate(-50%);
   color: black;
   z-index: 99;
   font-size: 50px;
 }
-.mask-p{
-  display: none;
-  position: absolute;
-  top: 40%;
-  left: 8%;
-  color: rgb(179, 162, 107);
-  z-index: 99;
-  font-size: 25px;
-}
 
-.mask-p2{
+.mask-text3{
   display: none;
   position: absolute;
-  top: 35%;
-  left: 4.5%;
-  color: rgb(179, 162, 107);
+  top: 55%;
+  left: 20%;
+  transform: translate(-50%);
+  color: black;
   z-index: 99;
-  font-size: 25px;
-}
-.mask-p3{
-  display: none;
-  position: absolute;
-  top: 40%;
-  left: 6%;
-  color: rgb(179, 162, 107);
-  z-index: 99;
-  font-size: 20px;
+  font-size: 50px;
 }
 
 .swiper-button-next,
@@ -188,9 +168,8 @@
 .mask-text,
 .mask-text1,
 .mask-text2,
-.mask-p,
-.mask-p2,
-.mask-p3{
+.mask-text3
+{
   display: block;
 }
 }

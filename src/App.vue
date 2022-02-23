@@ -12,16 +12,17 @@
         <b-nav-item class="mx-3" to='/introduction'><b-nav-text><a>鍋物介紹</a></b-nav-text></b-nav-item>
         <b-nav-item class="mx-3" to='/cart'><b-nav-text><a>我要點餐</a></b-nav-text></b-nav-item>
         <b-nav-item class="mx-3" to='/comment'><b-nav-text><a>留言板</a></b-nav-text></b-nav-item>
+        <b-nav-item class="mx-3" to='/test'><b-nav-text><a>測試</a></b-nav-text></b-nav-item>
       </div>
-      <div class="ml-auto d-flex flex-column flex-lg-row me lg-container">
+      <div class="ml-md-auto ml-3 d-flex flex-column flex-lg-row me lg-container">
         <b-nav-item class="mx-lg-auto" v-if="!user.isLogin" @click="signForLine"><b-nav-text><a>註冊</a></b-nav-text></b-nav-item>
         <b-nav-item class="ms-lg-auto" v-if="user.isLogin && !user.isAdmin">
         <b-nav-item-dropdown text="管理" right>
-          <b-dropdown-item class="ms-lg-auto" to='/ordercart'>購物車<b-badge class="mx-2" variant="danger">{{ total }}</b-badge></b-dropdown-item>
+          <b-dropdown-item class="ms-lg-auto" to='/ordercart'>購物車<b-badge class="mx-2" variant="danger">{{ user.cart }}</b-badge></b-dropdown-item>
           <b-dropdown-item class="ms-lg-auto" to='/orders'>訂單明細</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-nav-item>
-      <b-nav-item class="ms-lg-auto" v-if="user.isLogin && user.isAdmin" to='/admin'>
+      <b-nav-item class="ms-lg-auto" v-if="user.isLogin && user.isAdmin">
         <b-nav-item-dropdown text="管理" right>
           <b-dropdown-item to='/admin/orders'>訂單管理</b-dropdown-item>
           <b-dropdown-item to='/admin/products'>商品管理</b-dropdown-item>
@@ -83,7 +84,7 @@ export default {
         password: this.form.password.length === 0 ? null : this.form.password.length >= 4 && this.form.password.length <= 20
       }
     },
-    total () {
+    total1 () {
       return this.user.cart.reduce((accumulator, currentValue) => {
         return accumulator + currentValue.quantity
       }, 0)
