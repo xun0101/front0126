@@ -47,16 +47,13 @@ body{
       font-size: 3rem;
       }
       @media (max-width: 768px) {
-        font-size: 2.5rem;
+        font-size: 2.4rem;
         }
     }
   }
   .s2-h1 {
     font-size: 6rem;
     -webkit-text-stroke: 3px rgb(179, 162, 107);
-    -webkit-text-fill-color: transparent;
-    @media (max-width: 768px) {
-    -webkit-text-stroke: 1px rgb(179, 162, 107);
     -webkit-text-fill-color: white;
     text-shadow:
       5px 5px 0 #000,
@@ -64,7 +61,8 @@ body{
       1px -1px 0 #000,
       -1px 1px 0 #000,
       1px 1px 0 #000;
-    font-size: 4rem;
+    @media (max-width: 768px) {
+      font-size: 4rem;
     }
   }
   .s2-p2 {
@@ -128,21 +126,37 @@ body{
   }
 }
 
-.footer{
+#footer{
   position: relative;
   .footer-text{
     font-size: 1rem;
-    @media (min-width: 992px) { font-size: 1rem; }
+    // @media (min-width: 992px) { font-size: 1rem; }
+    @media (max-width: 576px) { font-size: 0.5rem; }
   }
   .footer-img{
     position: absolute;
-    right: 0;
-    top: 75%;
+    right: 5%;
+    top: 70%;
   }
   .footer-img-text{
     color: #26B9A7;
     font-size: 1rem;
     @media (min-width: 992px) { font-size: 1rem; }
+  }
+}
+
+#footer1{
+  margin-top: 150px;
+  .f1-img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  .f1-icon{
+    cursor: pointer;
+    &:hover{
+      color: #E4E4E4;
+    }
   }
 }
 
@@ -240,13 +254,15 @@ body{
   }
   .m1{
     position: fixed;
-    bottom:0;
+    bottom:0%;
     right: 0;
+    z-index: -1;
   }
   .m2{
     position: fixed;
-    bottom:0;
+    bottom:0%;
     right: 0;
+    z-index: -1;
   }
 }
 

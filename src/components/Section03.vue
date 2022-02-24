@@ -4,9 +4,9 @@
   <div class="s3-div">
     <img :src="product.image" class="s3-img">
   </div>
-  <div class="m-auto">
-    <h4 class="ml-5">{{ product.name }}</h4>
-    <div class="d-flex align-items-center mt-3 ml-5">
+  <div class="m-auto text-center text-lg-left">
+    <h4 class="ml-lg-5">{{ product.name }}</h4>
+    <div class="d-flex align-items-center mt-3 mx-3 ml-lg-5">
     <h5>{{ '$' + product.price }}</h5>
     <div class="d-flex">
     <b-form-input type='number' class="s3-w ml-3" v-model.number='quantity' min='0'></b-form-input>
