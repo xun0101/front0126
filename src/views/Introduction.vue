@@ -41,11 +41,16 @@
 <img src="https://www.jhujian.com.tw/images/home/hotPot.png" class="m1 d-none d-lg-block">
 <img src="https://www.jhujian.com.tw/images/home/hotPotMeat.png" class="m2 d-none d-lg-block" data-aos="fade-up" data-aos-duration="2000">
 <img src="https://www.jhujian.com.tw/images/home/hotPotFront.png" class="m1 d-none d-lg-block" >
+<Footer1></Footer1>
 </div>
 </template>
 
 <script>
+import Footer1 from '../components/Footer1.vue'
 export default {
+  components: {
+    Footer1
+  },
   data () {
     return {
       products: []

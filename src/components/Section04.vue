@@ -10,7 +10,7 @@
   </div>
   </div>
   <div class="d-flex justify-content-center ">
-    <div class="w-75 mt-3">
+    <div class="w-75 mt-4">
       <b-table sticky-header striped hover :items="news" :fields="fields" :sort-by.sync="sortBy" :sort-desc.sync="sortDesc" style="word-break:break-all; word-wrap:break-all;">
       <template #cell(news)='data'>
         {{ data.item.new }}

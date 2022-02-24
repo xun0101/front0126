@@ -1,49 +1,51 @@
 <template>
-<b-container class="new">
+<div class="m-0 p-0">
+<div class="new w-75 mx-auto">
   <Section04 data-aos="fade-right"></Section04>
   <div class="text-center n-food" data-aos="fade-right">
     <hr class="border-danger">
     <div class="d-flex justify-content-center ss mt-5">
   <div class="s4">
-    <img src="../assets/image/pig.png">
+    <img src="../assets/image/chili.png">
   </div>
   <h1 class="text-center">食材資訊</h1>
   <div class="s4">
-    <img src="../assets/image/pig.png">
+    <img src="../assets/image/chili2.png">
   </div>
 </div>
-    <b-row class="mt-4" cols="2">
-      <b-col>
-        <img class="img-fluid" src="../assets/image/豬肉標示貼紙-台灣豬標示(JPG).png" data-aos="flip-left" data-aos-offset="600">
-      </b-col>
-      <b-col class="border-left border-danger" data-aos="fade-down" data-aos-offset="450">
-        <h5 class="n-text" data-aos="fade-left" data-aos-offset="650">豬肉原產地：台灣</h5>
-      </b-col>
-      <b-col>
-        <h5 class="n-text" data-aos="fade-right" data-aos-offset="650">牛肉原產地:美國</h5>
-      </b-col>
-      <b-col class="border-left border-danger" data-aos="fade-down" data-aos-offset="450">
-        <img class="img-fluid" src="../assets/image/美國牛肉_1.png" data-aos="flip-right" data-aos-offset="600">
-      </b-col>
-      <b-col>
-        <img class="img-fluid" src="../assets/image/chicken.png" data-aos="flip-left" data-aos-offset="450">
-      </b-col>
-      <b-col class="border-left border-danger" data-aos="fade-down" data-aos-offset="450">
-        <h5 class="n-text" data-aos="fade-left" data-aos-offset="350">雞肉原產地：台灣</h5>
-      </b-col>
-  </b-row>
-  <div class="w-25 mx-auto">
-    <img class="img-fluid" src="../assets/image/hot-pot.png" data-aos="flip-right" data-aos-offset="250">
+<div class="d-flex p-5 flex-column flex-lg-row justify-content-around align-items-center">
+  <div>
+    <div class="n-img">
+      <img src="../assets/image/豬肉標示貼紙-台灣豬標示(JPG).png">
+    </div>
+    <p>豬肉來源：台灣</p>
+    </div>
+    <div>
+    <div class="n-img">
+      <img src="../assets/image/美國牛肉_1.png">
+    </div>
+    <p>牛肉來源：美國</p>
   </div>
+<div>
+  <div class="n-img" style="width: 250px; height: 250px;">
+    <img class="img-fluid" src="../assets/image/chicken.png">
   </div>
-</b-container>
+    <p>雞肉來源：台灣</p>
+</div>
+</div>
+  </div>
+</div>
+<footer1></footer1>
+</div>
 </template>
 
 <script>
 import Section04 from '../components/Section04.vue'
+import Footer1 from '../components/Footer1.vue'
 export default {
   components: {
-    Section04
+    Section04,
+    Footer1
   }
 }
 </script>

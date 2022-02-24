@@ -64,7 +64,7 @@ export const getInfo = async ({ commit, state }) => {
 export const signInLine = async ({ commit, state }) => {
   console.log(12345)
   const matches = location.href.match(/jwt=([^.\s]+.[^.\s]+.[^.\s]+)/gm)
-  if (matches.length > 0) {
+  if (matches?.length > 0) {
     const jwt = matches[0].substring(4, 176)
     if (jwt) {
       await api.get('/users/signInLineData', {

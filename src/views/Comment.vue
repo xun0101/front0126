@@ -1,47 +1,29 @@
 <template>
-<b-container style="margin-top: 150px;">
-<div class="d-flex justify-content-center ss">
-  <div class="s4">
-    <img src="../assets/image/chili.png">
-  </div>
-  <h1 class="text-center">留言板</h1>
-  <div class="s4">
-    <img src="../assets/image/chili2.png">
-  </div>
-</div>
-  <div class="card bg-light mt-4 p-5 shadow">
-    <b-pagination
-    v-model="currentPage"
-    :total-rows="rows"
-    :per-page="perPage"
-    aria-controls="my-table"
-    align="center"
-  ></b-pagination>
-  <b-table
-  id="my-table"
-  :per-page="perPage"
-  :current-page="currentPage"
-  :items="comments"
-  :fields='fields'
-  :sort-by.sync="sortBy"
-  :sort-desc.sync="sortDesc"
-  ref='table'
-  stacked="md">
-    <template #cell(user)='data'>
-      {{ data.item.user.account }}
-    </template>
-    <template #cell(comments)='data'>
-      {{ data.item.comment }}
-    </template>
-    <template #cell(date)='data'>
-      {{ new Date(data.item.date).toLocaleString('zh-tw') }}
-    </template>
-  </b-table>
-  </div>
+
+<div class="comment">
+<div class="container">
+<b-row class="p-2" cols="12" cols-lg="3">
+  <b-col class="my-3" v-for='(comment, i) in comments' :key='comment._id'>
+      <b-card bg-variant="light"
+      >
+      <div class="d-flex">
+      <img :src="comment.user.avatar" class="c-avatar">
+      <b-card-title class="mt-3 mx-2">
+        {{ comment.user.account }}
+      </b-card-title>
+      </div>
+        <b-card-text class="c-c-text">{{ comment.comment }}</b-card-text>
+        <b-card-text class="c-c-time">
+          {{ new Date(comment.date).toLocaleString('zh-tw') }}
+        </b-card-text>
+      </b-card>
+    <button class="btn-green border-0 my-3" v-if="user.isLogin && user.isAdmin" @click='del(comment._id, i)'>刪除</button>
+  </b-col>
+</b-row></div>
   <div class="text-center">
     <button class="btn-green border-0 my-3" v-b-modal.modal-comment v-if="user.isLogin">新增</button>
   </div>
-  <b-modal id="modal-comment"
+    <b-modal id="modal-comment"
     title="留言"
     centered
     ok-variant='success'
@@ -68,38 +50,23 @@
       :state = 'state.comment'
     ></b-form-input>
   </b-modal>
-  <div class="c-bg" data-aos="fade-right">
-    <img src="../assets/image/pepper.png">
-  </div>
-</b-container>
+  <Footer1></Footer1>
+</div>
 </template>
 
-<style>
-.page-item.active .page-link{
-  background-color: #8CA93E;
-  border-color: #8CA93E;
-}
-.page-link{
-  color: #8CA93E;
-}
-</style>
-
 <script>
+import Footer1 from '../components/Footer1.vue'
+
 export default {
+  components: {
+    Footer1
+  },
   data () {
     return {
-      perPage: 4,
-      currentPage: 1,
-      sortBy: 'date',
-      sortDesc: true,
-      fields: [
-        { key: 'user', label: '使用者' },
-        { key: 'comments', label: '留言' },
-        { key: 'date', label: '發佈時間' }
-      ],
       comments: [],
       form: {
-        comment: ''
+        comment: '',
+        index: -1
       },
       modalSubmitting: false
     }
@@ -109,9 +76,6 @@ export default {
       return {
         comment: this.form.comment.length === 0 ? null : true
       }
-    },
-    rows () {
-      return this.comments.length
     }
   },
   methods: {
@@ -154,6 +118,30 @@ export default {
       }
       this.form = {
         comment: ''
+      }
+    },
+    async del (id, i) {
+      try {
+        const { data } = await this.api.delete('/comments/dels/' + id, {
+          headers: {
+            authorization: 'Bearer ' + this.user.token
+          }
+        })
+        console.log(data)
+        this.$swal.fire({
+          icon: 'success',
+          title: '成功',
+          text: '刪除成功'
+        })
+        this.comments.splice(i, 1)
+        this.$refs.table.refresh()
+      } catch (error) {
+        console.log(error)
+        this.$swal({
+          icon: 'error',
+          title: '錯誤',
+          text: error.response.data.message
+        })
       }
     }
   },

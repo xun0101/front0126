@@ -30,14 +30,14 @@
         </b-nav-item-dropdown>
       </b-nav-item>
       <b-nav-item class="ms-lg-auto d-none d-lg-block"><b-nav-text><a>|</a></b-nav-text></b-nav-item>
-      <b-nav-item class="ms-lg-auto" v-if="!user.isLogin" v-b-modal.modal-1><b-nav-text><a>登入</a></b-nav-text></b-nav-item>
+      <b-nav-item class="ms-lg-auto" v-if="!user.isLogin" v-b-modal.modal-1 ><b-nav-text><a>登入</a></b-nav-text></b-nav-item>
       <b-nav-item class="ms-lg-auto" v-if="user.isLogin" @click="logout"><b-nav-text><a>登出</a></b-nav-text></b-nav-item>
       </div>
     </b-navbar-nav>
     </b-collapse>
   </b-navbar>
 
-<b-modal ref="my-modal" id="modal-1" hide-footer @hidden="hideModal">
+<b-modal ref="my-modal" id="modal-1" centered hide-footer @hidden="hideModal">
     <b-tabs align="around">
     <b-tab title="使用者登入" active>
     <div class="text-center my-5">

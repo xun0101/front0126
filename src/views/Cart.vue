@@ -18,15 +18,18 @@
 <div class="c-img">
   <img src="../assets/image/fog.png" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-easing="ease-in-out" data-aos-once="false">
 </div>
+<Footer1></Footer1>
 </div>
 </template>
 
 <script>
+import Footer1 from '../components/Footer1.vue'
 import Section03 from '../components/Section03.vue'
 
 export default {
   components: {
-    Section03
+    Section03,
+    Footer1
   },
   data () {
     return {
