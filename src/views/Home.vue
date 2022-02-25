@@ -17,12 +17,20 @@
 </div>
 <div class="bg-ss">
   <div class="ss">
-  <h1 class="text-white">從不辣到超級辣，任君選擇</h1>
-  <h1 class="text-white">讓不吃辣的你也能盡情享受</h1>
+  <p class="ss-text text-white">從不辣到超級辣，任君選擇</p>
+  <p class="ss-text text-white">讓不吃辣的你也能盡情享受</p>
   </div>
 </div>
 <div class="container" style="margin-top: 200px;">
-<h1 class="text-center">我要點餐</h1>
+<div class="d-flex justify-content-center ss">
+  <div class="s4">
+    <img src="../assets/image/hot-pot.png" data-aos="flip-right">
+  </div>
+  <h1 class="text-center mx-3">我要點餐</h1>
+  <div class="s4">
+    <img src="../assets/image/hot-pot.png" data-aos="flip-left">
+  </div>
+</div>
 <hr class="border-success">
   <b-row class="m-auto">
     <b-col v-for='product in products' :key='product._id'  cols="6" class="mt-3" >

@@ -39,11 +39,11 @@ const routes = [
     }
   },
   {
-    path: '/test',
-    name: 'Test',
-    component: () => import(/* webpackChunkName: "test" */ '../views/Test.vue'),
+    path: '/wait',
+    name: 'Wait',
+    component: () => import(/* webpackChunkName: "wait" */ '../views/Wait.vue'),
     meta: {
-      title: '測試 | 吃香喝辣'
+      title: '我要候位 | 吃香喝辣'
     }
   },
   {
@@ -75,6 +75,14 @@ const routes = [
     name: 'Admin',
     component: () => import(/* webpackChunkName: "admin" */ '../views/Admin.vue'),
     children: [
+      {
+        path: 'waits',
+        name: 'AdminWaits',
+        component: () => import(/* webpackChunkName: "admin" */ '../views/AdminWaits.vue'),
+        meta: {
+          title: '我要候位 | 吃香喝辣'
+        }
+      },
       {
         path: 'products',
         name: 'AdminProducts',

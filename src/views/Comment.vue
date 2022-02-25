@@ -1,13 +1,21 @@
 <template>
-
 <div class="comment">
+  <div class="d-flex justify-content-center ss">
+  <div class="s4">
+    <img src="../assets/image/chili.png">
+  </div>
+  <h1 class="text-center">留言板</h1>
+  <div class="s4">
+    <img src="../assets/image/chili2.png">
+  </div>
+</div>
 <div class="container">
-<b-row class="p-2" cols="12" cols-lg="3">
+  <hr class="border-danger">
+<b-row class="p-2" cols="1" cols-lg="3">
   <b-col class="my-3" v-for='(comment, i) in comments' :key='comment._id'>
-      <b-card bg-variant="light"
-      >
+      <b-card bg-variant="light">
       <div class="d-flex">
-      <img :src="comment.user.avatar" class="c-avatar">
+      <b-avatar :src="comment.user.avatar" :text="comment.user.account"></b-avatar>
       <b-card-title class="mt-3 mx-2">
         {{ comment.user.account }}
       </b-card-title>

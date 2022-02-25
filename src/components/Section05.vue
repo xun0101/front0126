@@ -1,6 +1,14 @@
 <template>
 <div id="section05">
-  <h1 class="text-center">鍋物介紹</h1>
+    <div class="d-flex justify-content-center ss">
+  <div class="s4">
+    <img src="../assets/image/hot-pot.png" data-aos="flip-right">
+  </div>
+  <h1 class="text-center mx-3">鍋物介紹</h1>
+  <div class="s4">
+    <img src="../assets/image/hot-pot.png" data-aos="flip-left">
+  </div>
+</div>
   <hr class="border-success">
   <swiper :options="swiperOption" ref="swiper" class="swiper">
     <swiper-slide v-for='product in products' :key='product._id'>

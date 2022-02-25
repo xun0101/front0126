@@ -15,10 +15,10 @@
       <font-awesome-icon class="ml-3" @click="editcart(data.index, 0)" :icon="['fas', 'trash']" style="color:#1A4605"/>
     </template>
   </b-table>
-  <h2 class="text-right">總金額： {{ total }}</h2>
-    <button variant='success' @click='checkout' class="btn-green border-0 rounded-pill" style="height: 50px;width: 100px;">
+  <h2 class="text-right">總金額： {{ total }} 元</h2>
+  <button variant='success' @click='checkout' class="btn-green border-0 rounded-pill" style="height: 50px;width: 100px;">
       結帳
-    </button>
+  </button>
 </div>
 </template>
 
