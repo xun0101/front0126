@@ -33,7 +33,7 @@
       description='必填欄位'
       invalid-feedback='商品名稱必填'
       :state='state.name'
-    ></b-form-group>
+    >
     <b-form-input
       id="input-name"
       v-model='form.name'
@@ -42,13 +42,14 @@
       placeholder='請輸入商品名稱'
       :state='state.name'
     ></b-form-input>
+    </b-form-group>
     <b-form-group
       label='商品價格'
       label-for='input-price'
       description='必填欄位'
       invalid-feedback='價格必須是 0 元以上'
       :state='state.price'
-    ></b-form-group>
+    >
     <b-form-input
       id="input-price"
       v-model.number='form.price'
@@ -58,13 +59,14 @@
       placeholder='請輸入商品價格'
       :state='state.price'
     ></b-form-input>
+    </b-form-group>
     <b-form-group
       label='商品說明'
       label-for='input-description'
       description='必填欄位'
       invalid-feedback='說明必填'
       :state='state.description'
-    ></b-form-group>
+    >
     <b-form-input
       id="input-description"
       v-model='form.description'
@@ -72,7 +74,7 @@
       rows="3"
       max-rows="6"
       placeholder='請輸入商品說明'
-    ></b-form-input>
+    ></b-form-input></b-form-group>
     <b-form-group label="上架">
       <b-form-radio v-model='form.sell' :value='true'>上架</b-form-radio>
       <b-form-radio v-model='form.sell' :value='false'>下架</b-form-radio>

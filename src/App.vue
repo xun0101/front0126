@@ -11,8 +11,8 @@
         <b-nav-item class="mx-3" to='/news'><b-nav-text><a>本店訊息</a></b-nav-text></b-nav-item>
         <b-nav-item class="mx-3" to='/introduction'><b-nav-text><a>鍋物介紹</a></b-nav-text></b-nav-item>
         <b-nav-item class="mx-3" to='/cart'><b-nav-text><a>我要點餐</a></b-nav-text></b-nav-item>
-        <b-nav-item class="mx-3" to='/comment'><b-nav-text><a>留言板</a></b-nav-text></b-nav-item>
         <b-nav-item class="mx-3" to='/wait'><b-nav-text><a>我要候位</a></b-nav-text></b-nav-item>
+        <b-nav-item class="mx-3" to='/comment'><b-nav-text><a>留言板</a></b-nav-text></b-nav-item>
       </div>
       <div class="ml-md-auto ml-3 d-flex flex-column flex-lg-row me lg-container">
         <b-nav-item class="mx-lg-auto" v-if="!user.isLogin" @click="signForLine"><b-nav-text><a>註冊</a></b-nav-text></b-nav-item>
