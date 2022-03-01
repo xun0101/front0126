@@ -142,7 +142,6 @@ body{
   position: relative;
   .footer-text{
     font-size: 1rem;
-    // @media (min-width: 992px) { font-size: 1rem; }
     @media (max-width: 576px) { font-size: 0.5rem; }
   }
   .footer-img{
@@ -152,7 +151,7 @@ body{
   }
   .footer-img-text{
     color: #26B9A7;
-    font-size: 1rem;
+    font-size: .5rem;
     @media (min-width: 992px) { font-size: 1rem; }
   }
 }
