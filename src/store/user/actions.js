@@ -71,7 +71,7 @@ export const signInLine = async ({ commit, state }) => {
         }
       }).then(res => {
         commit('login', res.data)
-        window.history.pushState('', '', '/')
+        window.history.pushState('', '', location.pathname)
       }).catch((error) => {
         console.log(error)
         commit('logout')
