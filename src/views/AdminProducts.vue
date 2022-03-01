@@ -167,7 +167,6 @@ export default {
 
         this.$bvModal.hide('modal-product')
       } catch (error) {
-        console.log(error)
         this.$swal({
           icon: 'error',
           title: '錯誤',
@@ -193,7 +192,6 @@ export default {
       }
     },
     editProduct (index) {
-      console.log(index)
       this.form = { ...this.products[index], image: null, index }
       this.$bvModal.show('modal-product')
     }

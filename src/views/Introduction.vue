@@ -14,11 +14,11 @@
 </div>
 <div class="d-flex justify-content-center ss mt-5">
   <div class="s4">
-    <img src="../assets/image/chili.png">
+    <img src="../assets/image/hot-pot.png" data-aos="flip-right">
   </div>
   <h1 class="text-center">鍋物介紹</h1>
   <div class="s4">
-    <img src="../assets/image/chili2.png">
+    <img src="../assets/image/hot-pot.png" data-aos="flip-left">
   </div>
 </div>
 <b-row class="i-row">

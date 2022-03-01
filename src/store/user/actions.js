@@ -4,7 +4,6 @@ import router from '@/router'
 
 export const login = async ({ commit }, form) => {
   try {
-    console.log(form)
     const { data } = await api.post('/users/login', form)
     commit('login', data.result)
     window.history.pushState('', '', '/')
@@ -62,7 +61,6 @@ export const getInfo = async ({ commit, state }) => {
 }
 
 export const signInLine = async ({ commit, state }) => {
-  console.log(12345)
   const matches = location.href.match(/jwt=([^.\s]+.[^.\s]+.[^.\s]+)/gm)
   if (matches?.length > 0) {
     const jwt = matches[0].substring(4, 176)
@@ -73,9 +71,7 @@ export const signInLine = async ({ commit, state }) => {
         }
       }).then(res => {
         commit('login', res.data)
-        // router.push('/')
         window.history.pushState('', '', '/')
-        // window.history.pushState('', '', '/line')
       }).catch((error) => {
         console.log(error)
         commit('logout')
@@ -115,7 +111,6 @@ export const addcart = async ({ commit, state }, data) => {
       text: '加入購物車成功'
     })
   } catch (error) {
-    console.log(error)
     swal.fire({
       icon: 'error',
       title: '錯誤',

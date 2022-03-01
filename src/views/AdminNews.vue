@@ -90,7 +90,6 @@ export default {
         return
       }
       this.modalSubmitting = true
-      console.log(this.cc)
 
       try {
         if (this.aa === true) {
@@ -99,10 +98,8 @@ export default {
               authorization: 'Bearer ' + this.user.token
             }
           })
-          console.log(data.result)
           this.news.push(data.result)
         } else {
-          console.log(this.form)
           await this.api.patch('/news/' + this.bb, this.form, {
             headers: {
               authorization: 'Bearer ' + this.user.token
@@ -113,7 +110,6 @@ export default {
         }
         this.$bvModal.hide('modal-new')
       } catch (error) {
-        console.log(error)
         this.$swal({
           icon: 'error',
           title: '錯誤',
@@ -124,7 +120,6 @@ export default {
       this.modalSubmitting = false
     },
     edit (id, index) {
-      console.log(index)
       this.form = { ...this.news[index] }
       this.$bvModal.show('modal-new')
       this.aa = false
@@ -142,7 +137,7 @@ export default {
     },
     async del (id, index) {
       try {
-        const { data } = await this.api.delete('/news/dels/' + id, {
+        await this.api.delete('/news/dels/' + id, {
           headers: {
             authorization: 'Bearer ' + this.user.token
           }
@@ -152,13 +147,9 @@ export default {
           title: '成功',
           text: '刪除成功'
         })
-        console.log(index)
-        console.log(data)
-        // this.news[index] = [...this.form]
         this.news.splice(index, 1)
         this.$refs.table.refresh()
       } catch (error) {
-        console.log(error)
         this.$swal({
           icon: 'error',
           title: '錯誤',

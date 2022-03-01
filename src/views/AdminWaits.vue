@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div class="container" style="margin-top: 100px;">
   <div class="card bg-light p-5 shadow">
   <b-table
     :items="waits"
@@ -30,7 +30,9 @@
       </div>
     </template>
   </b-table>
-    <b-modal id="modal-state"
+    <b-modal
+    ref="modal-state"
+    id="modal-state"
     title="操作"
     centered
     ok-variant='success'
@@ -70,9 +72,6 @@ export default {
   },
   methods: {
     async submitModal (event) {
-      console.log(event)
-      console.log(this.form)
-      console.log(this.orders)
       event.preventDefault()
       try {
         await this.api.patch('/waits/' + this.aa, this.form, {
@@ -84,7 +83,6 @@ export default {
         this.$refs.table.refresh()
         this.$bvModal.hide('modal-state')
       } catch (error) {
-        console.log(error)
         this.$swal({
           icon: 'error',
           title: '錯誤',
@@ -93,8 +91,6 @@ export default {
       }
     },
     check (id, index) {
-      console.log(id)
-      console.log(index)
       this.aa = id
       this.bb = index
     }

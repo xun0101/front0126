@@ -68,9 +68,6 @@ export default {
   },
   methods: {
     async submitModal (event) {
-      console.log(event)
-      console.log(this.form)
-      console.log(this.orders)
       event.preventDefault()
       try {
         await this.api.patch('/orders/' + this.aa, this.form, {
@@ -82,7 +79,6 @@ export default {
         this.$refs.table.refresh()
         this.$bvModal.hide('modal-state')
       } catch (error) {
-        console.log(error)
         this.$swal({
           icon: 'error',
           title: '錯誤',
@@ -91,8 +87,6 @@ export default {
       }
     },
     check (id, index) {
-      console.log(id)
-      console.log(index)
       this.aa = id
       this.bb = index
     }
@@ -106,7 +100,6 @@ export default {
       })
       this.orders = data.result
     } catch (error) {
-      console.log(error)
       this.$swal({
         icon: 'error',
         title: '失敗',

@@ -39,8 +39,6 @@ export default {
   },
   methods: {
     async addcart () {
-      console.log(this.product)
-      console.log(this.product._id)
       this.$store.dispatch('user/addcart', { product: this.product._id, quantity: this.quantity })
     }
   }

@@ -105,17 +105,14 @@ export default {
       }
 
       try {
-        console.log(this.form)
         const { data } = await this.api.post('/waits/', this.form, {
           headers: {
             authorization: 'Bearer ' + this.user.token
           }
         })
-        console.log(data.result)
         this.waits.push(data.result)
         this.$bvModal.hide('modal-wait')
       } catch (error) {
-        console.log(error)
         this.$swal({
           icon: 'error',
           title: '錯誤',

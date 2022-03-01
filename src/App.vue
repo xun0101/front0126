@@ -107,7 +107,6 @@ export default {
     login () {
       this.$refs['my-modal'].hide()
       this.$store.dispatch('user/login', this.form)
-      console.log(123)
     },
     logout () {
       this.$store.dispatch('user/logout')

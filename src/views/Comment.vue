@@ -105,11 +105,9 @@ export default {
             authorization: 'Bearer ' + this.user.token
           }
         })
-        console.log(data.result)
         this.comments.push(data.result)
         this.$bvModal.hide('modal-comment')
       } catch (error) {
-        console.log(error)
         this.$swal({
           icon: 'error',
           title: '錯誤',
@@ -130,12 +128,11 @@ export default {
     },
     async del (id, i) {
       try {
-        const { data } = await this.api.delete('/comments/dels/' + id, {
+        await this.api.delete('/comments/dels/' + id, {
           headers: {
             authorization: 'Bearer ' + this.user.token
           }
         })
-        console.log(data)
         this.$swal.fire({
           icon: 'success',
           title: '成功',
@@ -144,7 +141,6 @@ export default {
         this.comments.splice(i, 1)
         this.$refs.table.refresh()
       } catch (error) {
-        console.log(error)
         this.$swal({
           icon: 'error',
           title: '錯誤',
