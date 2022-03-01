@@ -21,6 +21,11 @@ import ImgInputer from 'vue-img-inputer'
 import 'vue-img-inputer/dist/index.css'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import VueGtag from 'vue-gtag'
+
+Vue.use(VueGtag, {
+  config: { id: 'G-3XFDPNECY9' }
+})
 
 Vue.component('ImgInputer', ImgInputer)
 
