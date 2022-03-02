@@ -123,7 +123,11 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  routes, mode: 'hash'
+  routes,
+  scrollBehavior () {
+    return { x: 0, y: 0, behavior: 'smooth' }
+  },
+  mode: 'hash'
 })
 
 router.beforeEach((to, from, next) => {
